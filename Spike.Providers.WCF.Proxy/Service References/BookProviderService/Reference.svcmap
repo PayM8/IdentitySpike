@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="34cb722d-69e6-44f2-9ffc-f95de026a0a4" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:8733/BookProviderService/mex" Protocol="mex" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="Spike.Providers.wsdl" MetadataType="Wsdl" ID="5eb87752-b7bb-4768-adb6-293495b9955b" SourceId="1" SourceUrl="http://localhost:8733/BookProviderService/mex" />
+    <MetadataFile FileName="service.wsdl" MetadataType="Wsdl" ID="2033155f-3a94-49b4-b6d9-668972f19baa" SourceId="1" SourceUrl="http://localhost:8733/BookProviderService/mex" />
+    <MetadataFile FileName="Spike.Providers.xsd" MetadataType="Schema" ID="ab955fd7-4373-459c-8d85-bfc61b5417ce" SourceId="1" SourceUrl="http://localhost:8733/BookProviderService/mex" />
+    <MetadataFile FileName="service.xsd" MetadataType="Schema" ID="9c09e0e8-3857-4ae8-a887-1a08c371f673" SourceId="1" SourceUrl="http://localhost:8733/BookProviderService/mex" />
+    <MetadataFile FileName="Spike.Contracts.Books.xsd" MetadataType="Schema" ID="e2107e87-890a-4f24-9356-bafc7f92c160" SourceId="1" SourceUrl="http://localhost:8733/BookProviderService/mex" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

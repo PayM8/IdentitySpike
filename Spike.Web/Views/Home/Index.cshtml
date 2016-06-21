@@ -1,0 +1,68 @@
+﻿@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_layout.cshtml";
+}
+
+@section Scripts {
+
+    <script>
+        
+        $().ready(function() {
+            site.page.links.submitOption = '@Url.Action("GetOption", "Home")';
+        });
+        
+    </script>
+
+}
+
+<h2>Identity Spike</h2>
+
+<p>This spike shows how to pass custom identity from multiple entry points and over N-Tier</p>
+
+<ul>
+    <li>MVC Website</li>
+    <li>Web API</li>
+    <li>WCF Web Service</li>
+</ul>
+
+<hr />
+
+<form class="table-bordered">
+    <div class="row">
+        <div class="col-md-offset-4 col-sm-3">
+            <input type="radio" name="multichoice" value="a"/> [a] Add BullsEye book
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-offset-4 col-md-3">
+            <input type="radio" name="multichoice" value="b"/> [b] Add FiveDysfunctions book
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-offset-4 col-md-3">
+            <input type="radio" name="multichoice" value="c"/> [c] Get BullsEye book
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-offset-4 col-md-3">
+            <input type="radio" name="multichoice" value="c"/> [d] Get all books
+        </div>
+    </div>
+
+    <br/>
+    <div class="row">
+        <div class="col-md-offset-4 col-md-3">
+            <input type="button" value="Choose" onclick="site.page.submit()"/>
+        </div>
+    </div>
+</form>
+
+<br />
+<div class="row">
+    <div class="col-md-offset-2 col-md-4" style="background-color:gray">
+        <div id="output">Sample output</div>
+    </div>
+</div>
