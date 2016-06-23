@@ -1,7 +1,6 @@
 ﻿
 namespace Spike.Adapters
 {
-    using System;
     using System.Collections.Generic;
     using Contracts.Books;
 
@@ -9,7 +8,7 @@ namespace Spike.Adapters
     {
         public static Book AddBook(Book book)
         {
-            return DatabaseStub.Instance.AddBook(book);
+            return DatabaseStub.Instance.GetBook(book.Id) != null ? new Book() : DatabaseStub.Instance.AddBook(book);
         }
 
         public static Book GetBook(int id)

@@ -24,7 +24,8 @@ namespace WcfCosumer
                 }
                 
                 Console.Clear();
-                Console.WriteLine("*** WCF Consumer ***");
+                Console.WriteLine("*** Consumer: WCF ***");
+                Console.WriteLine();
                 Console.WriteLine("[a] Add BullsEye book");
                 Console.WriteLine("[b] Add FiveDysfunctions book");
                 Console.WriteLine("[c] Get BullsEye book");

@@ -124,10 +124,12 @@
     <Content Include="Views\Home\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="App_Code\BookBuilder.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Areas\V01\Controllers\BookController.cs" />
     <Compile Include="Areas\V01\V01AreaRegistration.cs" />
+    <Compile Include="App_Code\BookWorker.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -157,6 +159,10 @@
     <ProjectReference Include="..\Spike.Contracts\Spike.Contracts.csproj">
       <Project>{d23623aa-b634-4df1-84df-eeeb7e10f8f3}</Project>
       <Name>Spike.Contracts</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Spike.Providers.WCF.Proxy\Spike.Providers.WCF.Proxy.csproj">
+      <Project>{9e330ed8-6c24-42e6-bb22-f09d82dcf5c0}</Project>
+      <Name>Spike.Providers.WCF.Proxy</Name>
     </ProjectReference>
     <ProjectReference Include="..\Spike.Public.Services\Spike.Public.Services.csproj">
       <Project>{c77062b8-5e06-4a41-8720-4747998a5dd3}</Project>

@@ -1,7 +1,8 @@
 ﻿
-namespace RestCosumer
+namespace RestConsumer
 {
     using System;
+    using RestCosumer;
 
     public class Program
     {
@@ -24,7 +25,8 @@ namespace RestCosumer
                 }
                 
                 Console.Clear();
-                Console.WriteLine("*** REST Consumer ***");
+                Console.WriteLine("*** Consumer: REST ***");
+                Console.WriteLine();
                 Console.WriteLine("[a] Add BullsEye book");
                 Console.WriteLine("[b] Add FiveDysfunctions book");
                 Console.WriteLine("[c] Get BullsEye book");

@@ -19,7 +19,7 @@ namespace Spike.Providers.WCF.Proxy
         where TIService : class
     {
 
-        private TClient serviceClient;
+        private TClient _serviceClient;
 
         public void Excecute(
             Action<TIService> serviceCall,
@@ -47,9 +47,9 @@ namespace Spike.Providers.WCF.Proxy
 
                 try
                 {
-                    this.serviceClient = this.CreateClient();
+                    this._serviceClient = this.CreateClient();
 
-                    return serviceCall.Invoke(this.serviceClient);
+                    return serviceCall.Invoke(this._serviceClient);
                 }
                 catch (CommunicationException comsException)
                 {
@@ -82,8 +82,8 @@ namespace Spike.Providers.WCF.Proxy
         {
             try
             {
-                this.serviceClient = this.serviceClient ?? this.CreateClient();
-                this.serviceClient.Open();
+                this._serviceClient = this._serviceClient ?? this.CreateClient();
+                this._serviceClient.Open();
             }
             catch
             {
@@ -109,28 +109,28 @@ namespace Spike.Providers.WCF.Proxy
 
         private void DisposeClient()
         {
-            if (this.serviceClient == null)
+            if (this._serviceClient == null)
             {
                 return;
             }
 
             try
             {
-                if (this.serviceClient.State == CommunicationState.Faulted)
+                if (this._serviceClient.State == CommunicationState.Faulted)
                 {
-                    this.serviceClient.Abort();
+                    this._serviceClient.Abort();
                 }
                 else
                 {
-                    this.serviceClient.Close();
+                    this._serviceClient.Close();
                 }
             }
             catch
             {
-                this.serviceClient.Abort();
+                this._serviceClient.Abort();
             }
 
-            this.serviceClient = null;
+            this._serviceClient = null;
         }
     }
 }

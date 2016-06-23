@@ -1,7 +1,6 @@
 ﻿
 namespace Spike.Providers.Books
 {
-    using System;
     using System.Collections.Generic;
     using Adapters;
     using Contracts.Books;

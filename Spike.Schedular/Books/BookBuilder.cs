@@ -1,8 +1,8 @@
 ﻿
-namespace RestConsumer
+namespace Spike.Schedular.Books
 {
     using System;
-    using Spike.Contracts.Books;
+    using Contracts.Books;
 
     public class BookBuilder : Book
     {

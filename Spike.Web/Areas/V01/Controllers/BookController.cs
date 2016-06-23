@@ -18,7 +18,7 @@ namespace Spike.Web.Areas.V01.Controllers
         }
 
         [HttpGet]
-        [Route("")]
+        [Route("{id:int}")]
         public Book Get(int id)
         {
             var service = ServiceFactory.CreateBookService();

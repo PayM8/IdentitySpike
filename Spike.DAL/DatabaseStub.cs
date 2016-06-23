@@ -26,7 +26,9 @@ namespace Spike.Adapters
 
         public Book GetBook(int id)
         {
-            return this._books.FirstOrDefault(b => b.Id == id);
+            var found =  this._books.FirstOrDefault(b => b.Id == id);
+
+            return found;
         }
 
         public IEnumerable<Book> GetAllBooks()

@@ -1,7 +1,6 @@
 ﻿
 namespace Spike.Public.Services.Books
 {
-    using System;
     using System.Collections.Generic;
     using Providers.WCF.Proxy;
     using Providers.WCF.Proxy.BookProviderService;

@@ -1,8 +1,8 @@
 ﻿
-namespace RestConsumer
+namespace Spike.Web
 {
     using System;
-    using Spike.Contracts.Books;
+    using Providers.WCF.Proxy.BookProviderService;
 
     public class BookBuilder : Book
     {

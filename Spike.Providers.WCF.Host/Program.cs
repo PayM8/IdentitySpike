@@ -14,7 +14,8 @@ namespace Spike.Providers.WCF.Host
             {
                 servicehost.Open();
 
-                Console.WriteLine("Service is available:");
+                Console.WriteLine("*** N-Tier: Provider Service ***");
+                Console.WriteLine();
                 Console.WriteLine(servicehost.Description.Endpoints.First().Address);
                 Console.WriteLine();
                 Console.WriteLine("Press <ENTER> to exit.");
