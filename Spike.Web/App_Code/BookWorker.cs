@@ -1,42 +1,43 @@
-﻿namespace Spike.Web
+﻿
+namespace Spike.Web
 {
+    using Contracts.Books;
     using Providers.WCF.Proxy;
-    using Providers.WCF.Proxy.BookProviderService;
-    using Public.Services.Books;
+    using Providers.WCF.Proxy.Builders;
+
     using System.Collections.Generic;
-    using Book = Contracts.Books.Book;
     
     public static class BookWorker
     {
         public static Book AddBullsEye()
         {
-            return AddBook(new BookBuilder().BullsEye().Build().Map());
+            return AddBook(new BookBuilder().BullsEye().Build());
         }
 
         public static Book AddFiveDysfunctions()
         {
-            return AddBook(new BookBuilder().FiveDysfunctions().Build().Map());
+            return AddBook(new BookBuilder().FiveDysfunctions().Build());
         }
 
         public static Book GetBullsEyeBook()
         {
-            var consumer = new ServiceClientWrapper<BookProviderServiceClient, BookProviderService>();
+            var provider = ProviderFactory.CreateBookProvider();
 
-            return consumer.Excecute(service => service.GetBook((new BookBuilder().BullsEye().Build()).Id)).Map();
+            return provider.GetBook(new BookBuilder().BullsEye().Build().Id);
         }
 
         public static IEnumerable<Book> GetAllBooks()
         {
-            var consumer = new ServiceClientWrapper<BookProviderServiceClient, BookProviderService>();
+            var provider = ProviderFactory.CreateBookProvider();
 
-            return consumer.Excecute(service => service.GetAllBooks()).Map();
+            return provider.GetAllBooks();
         }
 
         private static Book AddBook(Book book)
         {
-            var consumer = new ServiceClientWrapper<BookProviderServiceClient, BookProviderService>();
-
-            return consumer.Excecute(service => service.AddBook(book.Map())).Map();
+            var provider = ProviderFactory.CreateBookProvider();
+ 
+            return provider.AddBook(book);
         }
 
         public static string Display(this Book book)

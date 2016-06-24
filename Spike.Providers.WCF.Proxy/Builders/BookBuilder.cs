@@ -1,8 +1,8 @@
 ﻿
-namespace Spike.Web
+namespace Spike.Providers.WCF.Proxy.Builders
 {
     using System;
-    using Providers.WCF.Proxy.BookProviderService;
+    using Contracts.Books;
 
     public class BookBuilder : Book
     {

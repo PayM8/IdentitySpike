@@ -33,7 +33,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Spike.Web", "Spike.Web\Spik
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Spike.Public.Services", "Spike.Public.Services\Spike.Public.Services.csproj", "{C77062B8-5E06-4A41-8720-4747998A5DD3}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "5. Consumers", "5. Consumers", "{459A85B6-3693-46E8-9DD4-F2BCBA617306}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Consumers", "Consumers", "{459A85B6-3693-46E8-9DD4-F2BCBA617306}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WcfCosumer", "WcfCosumer\WcfCosumer.csproj", "{C7A73F48-67EE-414B-9F50-182653DD720F}"
 	ProjectSection(ProjectDependencies) = postProject
@@ -52,6 +52,10 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Spike.Schedular.Host", "Spike.Schedular.Host\Spike.Schedular.Host.csproj", "{A09D09C4-ACCF-4947-A2C7-A73A82619011}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Spike.Schedular", "Spike.Schedular\Spike.Schedular.csproj", "{49605D63-4138-4471-B17B-E01B998AE503}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "5. Cross Cutting Concerns", "5. Cross Cutting Concerns", "{18F87588-2536-4AED-B725-05C7DD3D0812}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Spike.Security", "Spike.Security\Spike.Security.csproj", "{39FDFDD6-7B2C-4565-8CF0-2027593941C4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -107,6 +111,10 @@ Global
 		{49605D63-4138-4471-B17B-E01B998AE503}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{49605D63-4138-4471-B17B-E01B998AE503}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{49605D63-4138-4471-B17B-E01B998AE503}.Release|Any CPU.Build.0 = Release|Any CPU
+		{39FDFDD6-7B2C-4565-8CF0-2027593941C4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{39FDFDD6-7B2C-4565-8CF0-2027593941C4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{39FDFDD6-7B2C-4565-8CF0-2027593941C4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{39FDFDD6-7B2C-4565-8CF0-2027593941C4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -125,5 +133,6 @@ Global
 		{A5B0E1FE-B068-46F8-9670-7BAE9F5C2FE3} = {36F7E0D0-6184-4528-B88E-6BB17FA4CE57}
 		{A09D09C4-ACCF-4947-A2C7-A73A82619011} = {A5B0E1FE-B068-46F8-9670-7BAE9F5C2FE3}
 		{49605D63-4138-4471-B17B-E01B998AE503} = {A5B0E1FE-B068-46F8-9670-7BAE9F5C2FE3}
+		{39FDFDD6-7B2C-4565-8CF0-2027593941C4} = {18F87588-2536-4AED-B725-05C7DD3D0812}
 	EndGlobalSection
 EndGlobal

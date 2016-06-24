@@ -9,19 +9,24 @@ namespace Spike.Providers.WCF.Host
     {
         public static void Main(string[] args)
         {
-            var servicehost = new ServiceHost(typeof(BookProviderService));
+            var bookHost = new ServiceHost(typeof(BookProviderService));
+            var securityHost = new ServiceHost(typeof(SecurityProviderService));
+
             try
             {
-                servicehost.Open();
+                bookHost.Open();
+                securityHost.Open();
 
                 Console.WriteLine("*** N-Tier: Provider Service ***");
                 Console.WriteLine();
-                Console.WriteLine(servicehost.Description.Endpoints.First().Address);
+                Console.WriteLine(bookHost.Description.Endpoints.First().Address);
+                Console.WriteLine(securityHost.Description.Endpoints.First().Address);
                 Console.WriteLine();
                 Console.WriteLine("Press <ENTER> to exit.");
                 Console.ReadLine();
 
-                servicehost.Close();
+                bookHost.Close();
+                securityHost.Close();
             }
             catch (CommunicationException commProblem)
             {

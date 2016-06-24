@@ -1,15 +1,19 @@
 ﻿
-using System.Linq;
-
 namespace Spike.Web.Controllers
 {
     using System.Web.Mvc;
     using Models;
+    using System.Linq;
+    using Providers.WCF.Proxy;
 
     public class HomeController : Controller
     {
         public ActionResult Index()
         {
+           var provider = ProviderFactory.CreateSecurityProvider();
+
+           var user = provider.GetUser(1);
+            
             return View();
         }
 

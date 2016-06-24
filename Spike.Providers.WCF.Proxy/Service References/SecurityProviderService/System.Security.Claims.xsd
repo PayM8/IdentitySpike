@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/System.Security.Claims" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/System.Security.Claims" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+  <xs:complexType name="ArrayOfClaim">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Claim" nillable="true" type="tns:Claim" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfClaim" nillable="true" type="tns:ArrayOfClaim" />
+  <xs:complexType name="Claim">
+    <xs:sequence>
+      <xs:element name="m_issuer" nillable="true" type="xs:string" />
+      <xs:element name="m_originalIssuer" nillable="true" type="xs:string" />
+      <xs:element xmlns:q1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" name="m_properties" nillable="true" type="q1:ArrayOfKeyValueOfstringstring" />
+      <xs:element name="m_type" nillable="true" type="xs:string" />
+      <xs:element name="m_value" nillable="true" type="xs:string" />
+      <xs:element name="m_valueType" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Claim" nillable="true" type="tns:Claim" />
+</xs:schema>

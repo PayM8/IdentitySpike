@@ -39,9 +39,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Entities\UserEntity.cs" />
+    <Compile Include="SecurityAdapter.cs" />
     <Compile Include="BookAdapter.cs" />
-    <Compile Include="DatabaseStub.cs" />
+    <Compile Include="StubData\DatabaseStub.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="StubData\UserWaldo.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Spike.Contracts\Spike.Contracts.csproj">

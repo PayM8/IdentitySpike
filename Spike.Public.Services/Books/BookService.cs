@@ -3,30 +3,30 @@ namespace Spike.Public.Services.Books
 {
     using System.Collections.Generic;
     using Providers.WCF.Proxy;
-    using Providers.WCF.Proxy.BookProviderService;
-    using Book = Contracts.Books.Book;
+    using Contracts.Books;
+
 
     public class BookService : IBookService
     {
         public Book AddBook(Book book)
         {
-            var consumer = new ServiceClientWrapper<BookProviderServiceClient, BookProviderService>();
+            var provider = ProviderFactory.CreateBookProvider();
 
-            return consumer.Excecute(service => service.AddBook(book.Map())).Map();
+            return provider.AddBook(book);
         }
 
         public Book GetBook(int id)
         {
-            var consumer = new ServiceClientWrapper<BookProviderServiceClient, BookProviderService>();
+            var provider = ProviderFactory.CreateBookProvider();
 
-            return consumer.Excecute(service => service.GetBook(id)).Map();
+            return provider.GetBook(id);
         }
 
         public IEnumerable<Book> GetAllBooks()
         {
-            var consumer = new ServiceClientWrapper<BookProviderServiceClient, BookProviderService>();
+            var provider = ProviderFactory.CreateBookProvider();
 
-            return consumer.Excecute(service => service.GetAllBooks()).Map();
+            return provider.GetAllBooks();
         }
     }
 }

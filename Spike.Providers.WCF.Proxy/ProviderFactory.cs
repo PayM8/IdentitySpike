@@ -1,8 +1,7 @@
 ﻿
-namespace Spike.Providers
+namespace Spike.Providers.WCF.Proxy
 {
-    using Books;
-    using Security;
+    using Providers;
 
     public class ProviderFactory
     {

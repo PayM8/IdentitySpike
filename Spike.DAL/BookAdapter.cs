@@ -3,6 +3,7 @@ namespace Spike.Adapters
 {
     using System.Collections.Generic;
     using Contracts.Books;
+    using StubData;
 
     public static class BookAdapter
     {
