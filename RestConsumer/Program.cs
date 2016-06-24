@@ -2,7 +2,6 @@
 namespace RestConsumer
 {
     using System;
-    using RestCosumer;
 
     public class Program
     {

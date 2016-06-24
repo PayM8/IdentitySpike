@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="c4787734-7a1e-4df3-bf00-5555ebfe01d1" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="5f96ab22-3b19-4e3a-9725-70324c54a38c" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
   <ClientOptions>
     <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
     <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
@@ -22,14 +22,14 @@
     <MetadataSource Address="http://localhost:8733/SecurityProviderService/mex" Protocol="mex" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="Spike.Providers.wsdl" MetadataType="Wsdl" ID="565c24cd-8585-4de5-82c0-a6cbd7882042" SourceId="1" SourceUrl="http://localhost:8733/SecurityProviderService/mex" />
-    <MetadataFile FileName="service.wsdl" MetadataType="Wsdl" ID="b4d8b834-7eca-405f-bd0a-617880a084dd" SourceId="1" SourceUrl="http://localhost:8733/SecurityProviderService/mex" />
-    <MetadataFile FileName="Spike.Providers.xsd" MetadataType="Schema" ID="9801a8ae-2ac1-42b4-8ec1-913d96ef1f99" SourceId="1" SourceUrl="http://localhost:8733/SecurityProviderService/mex" />
-    <MetadataFile FileName="service.xsd" MetadataType="Schema" ID="a2714b67-aa8a-4503-bb75-e135837d99c8" SourceId="1" SourceUrl="http://localhost:8733/SecurityProviderService/mex" />
-    <MetadataFile FileName="Spike.Contracts.Security.xsd" MetadataType="Schema" ID="fb75955b-1c4d-4f9e-98c2-ceb82e9debcd" SourceId="1" SourceUrl="http://localhost:8733/SecurityProviderService/mex" />
-    <MetadataFile FileName="Spike.Contracts.Users.xsd" MetadataType="Schema" ID="acfbb478-055c-4daa-992b-43dc60c00bab" SourceId="1" SourceUrl="http://localhost:8733/SecurityProviderService/mex" />
-    <MetadataFile FileName="System.Security.Claims.xsd" MetadataType="Schema" ID="633545ea-d7d6-4146-bfbc-95315c5d29a1" SourceId="1" SourceUrl="http://localhost:8733/SecurityProviderService/mex" />
-    <MetadataFile FileName="Arrays.xsd" MetadataType="Schema" ID="e8fb3259-974e-49f4-b39d-6dfc95b06c10" SourceId="1" SourceUrl="http://localhost:8733/SecurityProviderService/mex" />
+    <MetadataFile FileName="Spike.Providers.wsdl" MetadataType="Wsdl" ID="06060ef3-4f0b-4d3b-8fd4-fe27a6529b37" SourceId="1" SourceUrl="http://localhost:8733/SecurityProviderService/mex" />
+    <MetadataFile FileName="service.wsdl" MetadataType="Wsdl" ID="c1e0ca81-021b-4161-956e-2f5c195e5a74" SourceId="1" SourceUrl="http://localhost:8733/SecurityProviderService/mex" />
+    <MetadataFile FileName="Spike.Providers.xsd" MetadataType="Schema" ID="1c924c83-e7ae-4da2-88cb-dd5f27f2306b" SourceId="1" SourceUrl="http://localhost:8733/SecurityProviderService/mex" />
+    <MetadataFile FileName="service.xsd" MetadataType="Schema" ID="09e0c52d-a0f3-49ac-9ae9-591cd31f0671" SourceId="1" SourceUrl="http://localhost:8733/SecurityProviderService/mex" />
+    <MetadataFile FileName="Spike.Contracts.Security.xsd" MetadataType="Schema" ID="5cc33dbe-a1aa-4fcc-846a-70eca2182c0e" SourceId="1" SourceUrl="http://localhost:8733/SecurityProviderService/mex" />
+    <MetadataFile FileName="Spike.Contracts.Users.xsd" MetadataType="Schema" ID="fa9bab35-8db8-4b31-a001-ba8c4faa0759" SourceId="1" SourceUrl="http://localhost:8733/SecurityProviderService/mex" />
+    <MetadataFile FileName="System.Security.Claims.xsd" MetadataType="Schema" ID="b878cac0-fa5d-4abd-89f3-e60c1701e4d2" SourceId="1" SourceUrl="http://localhost:8733/SecurityProviderService/mex" />
+    <MetadataFile FileName="Arrays.xsd" MetadataType="Schema" ID="83ddc6e7-a410-489c-949d-d51aa8c4b064" SourceId="1" SourceUrl="http://localhost:8733/SecurityProviderService/mex" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

@@ -9,10 +9,10 @@ namespace Spike.Contracts.Providers
     {
         ApplicationUser RegisterUser(ApplicationUser user);
 
-        ApplicationUser DeleteUser(int id);
+        ApplicationUser DeleteUser(string userName);
 
-        ApplicationUser GetUser(int id);
+        ApplicationUser GetUser(string userName);
 
-        IEnumerable<Claim> GetUserClaims(int userId);
+        IEnumerable<Claim> GetUserClaims(string userName);
     }
 }

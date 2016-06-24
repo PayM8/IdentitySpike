@@ -3,6 +3,7 @@ namespace WcfCosumer
 {
     using System;
     using System.Linq;
+    using System.Threading;
     using BookService;
     using System.Collections.Generic;
 
@@ -35,8 +36,8 @@ namespace WcfCosumer
             {
                 Console.WriteLine("Retrieved [{0}] book", newBook.Display());
             }
-           
-            Console.ReadKey();
+
+            Thread.Sleep(2000);
             return newBook;
         }
 
@@ -61,7 +62,7 @@ namespace WcfCosumer
                 }
             }
 
-            Console.ReadKey();
+            Thread.Sleep(2000);
             return books;
         }
 
@@ -76,7 +77,7 @@ namespace WcfCosumer
             }
 
             Console.WriteLine("End - Adding [{0}] book", newBook.Display());
-            Console.ReadKey();
+            Thread.Sleep(2000);
             return newBook;
         }
 

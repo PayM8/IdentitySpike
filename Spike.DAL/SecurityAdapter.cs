@@ -10,23 +10,23 @@ namespace Spike.Adapters
     {
         public static UserEntity RegisterUser(UserEntity user)
         {
-            return DatabaseStub.Instance.GetUser(user.Id) != null ?
+            return DatabaseStub.Instance.GetUser(user.UserName) != null ?
                 new UserEntity() : DatabaseStub.Instance.AddUser(user);
         }
 
-        public static  UserEntity DeleteUser(int id)
+        public static UserEntity DeleteUser(string userName)
         {
-           return DatabaseStub.Instance.DeleteUser(id);
+            return DatabaseStub.Instance.DeleteUser(userName);
         }
 
-        public static UserEntity GetUser(int id)
+        public static UserEntity GetUser(string userName)
         {
-            return DatabaseStub.Instance.GetUser(id);
+            return DatabaseStub.Instance.GetUser(userName);
         }
 
-        public static void AddUserRole(int userId, UserRole role)
+        public static void AddUserRole(string userName, UserRole role)
         {
-            var user = DatabaseStub.Instance.GetUser(userId);
+            var user = DatabaseStub.Instance.GetUser(userName);
             if (user == null)
             {
                 throw new ArgumentException("User does not exist");

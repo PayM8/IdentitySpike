@@ -19,27 +19,27 @@ namespace Spike.Providers.WCF
         }
 
         [OperationContract]
-        public ApplicationUser DeleteUser(int id)
+        public ApplicationUser DeleteUser(string userName)
         {
             var provider = ProviderFactory.CreateSecurityProvider();
 
-            return provider.DeleteUser(id);
+            return provider.DeleteUser(userName);
         }
 
         [OperationContract]
-        public ApplicationUser GetUser(int id)
+        public ApplicationUser GetUser(string userName)
         {
             var provider = ProviderFactory.CreateSecurityProvider();
 
-            return provider.GetUser(id);
+            return provider.GetUser(userName);
         }
 
         [OperationContract]
-        public IEnumerable<Claim> GetUserClaims(int userId)
+        public IEnumerable<Claim> GetUserClaims(string userName)
         {
             var provider = ProviderFactory.CreateSecurityProvider();
 
-            return provider.GetUserClaims(userId);
+            return provider.GetUserClaims(userName);
         }
     }
 }

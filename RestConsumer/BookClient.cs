@@ -4,11 +4,11 @@ namespace RestConsumer
     using System;
     using System.Net.Http;
     using System.Net.Http.Headers;
+    using System.Threading;
     using System.Threading.Tasks;
     using Spike.Contracts.Books;
     using System.Collections.Generic;
     using System.Linq;
-    using RestCosumer;
 
     public class BookClient : ApiClient
     {
@@ -43,7 +43,7 @@ namespace RestConsumer
                 Console.WriteLine("Retrieved [{0}] book", newBook.Display());
             }
 
-            Console.ReadKey();
+            Thread.Sleep(2000);
         }
 
         private async Task GetSingleAsync(string relativePath)
@@ -59,7 +59,7 @@ namespace RestConsumer
                 Console.WriteLine("Retrieved [{0}] book", book.Display());
             }
 
-            Console.ReadKey();
+            Thread.Sleep(2000);
         }
 
         private async Task GetListAsync(string relativePath)
@@ -77,7 +77,7 @@ namespace RestConsumer
                 }
             }
 
-            Console.ReadKey();
+            Thread.Sleep(2000);
         }
     }
     

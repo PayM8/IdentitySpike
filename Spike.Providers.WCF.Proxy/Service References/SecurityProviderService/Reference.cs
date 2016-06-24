@@ -22,22 +22,22 @@ namespace Spike.Providers.WCF.Proxy.SecurityProviderService {
         System.Threading.Tasks.Task<Spike.Contracts.Security.ApplicationUser> RegisterUserAsync(Spike.Contracts.Security.ApplicationUser user);
         
         [System.ServiceModel.OperationContractAttribute(Action="Spike.Providers/SecurityProviderService/DeleteUser", ReplyAction="Spike.Providers/SecurityProviderService/DeleteUserResponse")]
-        Spike.Contracts.Security.ApplicationUser DeleteUser(int id);
+        Spike.Contracts.Security.ApplicationUser DeleteUser(string userName);
         
         [System.ServiceModel.OperationContractAttribute(Action="Spike.Providers/SecurityProviderService/DeleteUser", ReplyAction="Spike.Providers/SecurityProviderService/DeleteUserResponse")]
-        System.Threading.Tasks.Task<Spike.Contracts.Security.ApplicationUser> DeleteUserAsync(int id);
+        System.Threading.Tasks.Task<Spike.Contracts.Security.ApplicationUser> DeleteUserAsync(string userName);
         
         [System.ServiceModel.OperationContractAttribute(Action="Spike.Providers/SecurityProviderService/GetUser", ReplyAction="Spike.Providers/SecurityProviderService/GetUserResponse")]
-        Spike.Contracts.Security.ApplicationUser GetUser(int id);
+        Spike.Contracts.Security.ApplicationUser GetUser(string userName);
         
         [System.ServiceModel.OperationContractAttribute(Action="Spike.Providers/SecurityProviderService/GetUser", ReplyAction="Spike.Providers/SecurityProviderService/GetUserResponse")]
-        System.Threading.Tasks.Task<Spike.Contracts.Security.ApplicationUser> GetUserAsync(int id);
+        System.Threading.Tasks.Task<Spike.Contracts.Security.ApplicationUser> GetUserAsync(string userName);
         
         [System.ServiceModel.OperationContractAttribute(Action="Spike.Providers/SecurityProviderService/GetUserClaims", ReplyAction="Spike.Providers/SecurityProviderService/GetUserClaimsResponse")]
-        System.Security.Claims.Claim[] GetUserClaims(int userId);
+        System.Security.Claims.Claim[] GetUserClaims(string userName);
         
         [System.ServiceModel.OperationContractAttribute(Action="Spike.Providers/SecurityProviderService/GetUserClaims", ReplyAction="Spike.Providers/SecurityProviderService/GetUserClaimsResponse")]
-        System.Threading.Tasks.Task<System.Security.Claims.Claim[]> GetUserClaimsAsync(int userId);
+        System.Threading.Tasks.Task<System.Security.Claims.Claim[]> GetUserClaimsAsync(string userName);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -75,28 +75,28 @@ namespace Spike.Providers.WCF.Proxy.SecurityProviderService {
             return base.Channel.RegisterUserAsync(user);
         }
         
-        public Spike.Contracts.Security.ApplicationUser DeleteUser(int id) {
-            return base.Channel.DeleteUser(id);
+        public Spike.Contracts.Security.ApplicationUser DeleteUser(string userName) {
+            return base.Channel.DeleteUser(userName);
         }
         
-        public System.Threading.Tasks.Task<Spike.Contracts.Security.ApplicationUser> DeleteUserAsync(int id) {
-            return base.Channel.DeleteUserAsync(id);
+        public System.Threading.Tasks.Task<Spike.Contracts.Security.ApplicationUser> DeleteUserAsync(string userName) {
+            return base.Channel.DeleteUserAsync(userName);
         }
         
-        public Spike.Contracts.Security.ApplicationUser GetUser(int id) {
-            return base.Channel.GetUser(id);
+        public Spike.Contracts.Security.ApplicationUser GetUser(string userName) {
+            return base.Channel.GetUser(userName);
         }
         
-        public System.Threading.Tasks.Task<Spike.Contracts.Security.ApplicationUser> GetUserAsync(int id) {
-            return base.Channel.GetUserAsync(id);
+        public System.Threading.Tasks.Task<Spike.Contracts.Security.ApplicationUser> GetUserAsync(string userName) {
+            return base.Channel.GetUserAsync(userName);
         }
         
-        public System.Security.Claims.Claim[] GetUserClaims(int userId) {
-            return base.Channel.GetUserClaims(userId);
+        public System.Security.Claims.Claim[] GetUserClaims(string userName) {
+            return base.Channel.GetUserClaims(userName);
         }
         
-        public System.Threading.Tasks.Task<System.Security.Claims.Claim[]> GetUserClaimsAsync(int userId) {
-            return base.Channel.GetUserClaimsAsync(userId);
+        public System.Threading.Tasks.Task<System.Security.Claims.Claim[]> GetUserClaimsAsync(string userName) {
+            return base.Channel.GetUserClaimsAsync(userName);
         }
     }
 }

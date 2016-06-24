@@ -1,9 +1,8 @@
 ﻿
-using Spike.Contracts.Security;
-
 namespace Spike.Adapters.Entities
 {
     using System.Collections.Generic;
+    using Contracts.Security;
     using Contracts.Users;
 
     public class UserEntity

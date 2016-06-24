@@ -14,19 +14,19 @@ namespace Spike.Providers.Security
             return SecurityAdapter.RegisterUser(user.Map()).Map();
         }
 
-        public ApplicationUser DeleteUser(int id)
+        public ApplicationUser DeleteUser(string userName)
         {
-            return SecurityAdapter.DeleteUser(id).Map();
+            return SecurityAdapter.DeleteUser(userName).Map();
         }
 
-        public ApplicationUser GetUser(int id)
+        public ApplicationUser GetUser(string userName)
         {
-            return SecurityAdapter.GetUser(id).Map();
+            return SecurityAdapter.GetUser(userName).Map();
         }
 
-        public IEnumerable<Claim> GetUserClaims(int userId)
+        public IEnumerable<Claim> GetUserClaims(string userName)
         {
-            var user = SecurityAdapter.GetUser(userId);
+            var user = SecurityAdapter.GetUser(userName);
             
             if (user == null)
             {
@@ -34,7 +34,7 @@ namespace Spike.Providers.Security
             }
 
             var claims = GetClaimsForRoles(user.Roles);
-            claims.AddRange(GetUserCustomClaims(userId));
+            claims.AddRange(GetUserCustomClaims(userName));
 
             return claims;
         }
@@ -44,7 +44,7 @@ namespace Spike.Providers.Security
             return new ClaimRoleMapper(roles).UserClaims;
         }
 
-        private static IEnumerable<Claim> GetUserCustomClaims(int userId)
+        private static IEnumerable<Claim> GetUserCustomClaims(string userName)
         {
             // Add non Role based claim logic here
 

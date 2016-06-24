@@ -15,25 +15,25 @@ namespace Spike.Providers.WCF.Proxy.Providers
             return consumer.Excecute(service => service.RegisterUser(user));
         }
 
-        public ApplicationUser DeleteUser(int id)
+        public ApplicationUser DeleteUser(string userName)
         {
             var consumer = new ServiceClientWrapper<SecurityProviderService.SecurityProviderServiceClient, SecurityProviderService.SecurityProviderService>();
 
-            return consumer.Excecute(service => service.DeleteUser(id));
+            return consumer.Excecute(service => service.DeleteUser(userName));
         }
 
-        public ApplicationUser GetUser(int id)
+        public ApplicationUser GetUser(string userName)
         {
             var consumer = new ServiceClientWrapper<SecurityProviderService.SecurityProviderServiceClient, SecurityProviderService.SecurityProviderService>();
 
-            return consumer.Excecute(service => service.GetUser(id));
+            return consumer.Excecute(service => service.GetUser(userName));
         }
 
-        public IEnumerable<Claim> GetUserClaims(int userId)
+        public IEnumerable<Claim> GetUserClaims(string userName)
         {
             var consumer = new ServiceClientWrapper<SecurityProviderService.SecurityProviderServiceClient, SecurityProviderService.SecurityProviderService>();
 
-            return consumer.Excecute(service => service.GetUserClaims(userId));
+            return consumer.Excecute(service => service.GetUserClaims(userName));
         }
     }
 }

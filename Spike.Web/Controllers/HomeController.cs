@@ -11,10 +11,14 @@ namespace Spike.Web.Controllers
         public ActionResult Index()
         {
            var provider = ProviderFactory.CreateSecurityProvider();
+           var user = provider.GetUser("marius");
 
-           var user = provider.GetUser(1);
-            
-            return View();
+            var homeModel = new Home()
+            {
+                UserName = user.UserName
+            };
+
+            return View(homeModel);
         }
 
         public ActionResult GetOption(string option)

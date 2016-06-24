@@ -48,14 +48,14 @@ namespace Spike.Adapters.StubData
             return user;
         }
 
-        public UserEntity GetUser(int id)
+        public UserEntity GetUser(string userName)
         {
-            return this._users.FirstOrDefault(user => user.Id == id && !user.IsDeleted);
+            return this._users.FirstOrDefault(user => user.UserName.Equals(userName) && !user.IsDeleted);
         }
 
-        public UserEntity DeleteUser(int id)
+        public UserEntity DeleteUser(string userName)
         {
-            var found = this._users.FirstOrDefault(user => user.Id == id);
+            var found = this._users.FirstOrDefault(user => user.UserName.Equals(userName));
 
             if (found == null)
             {
@@ -68,7 +68,7 @@ namespace Spike.Adapters.StubData
 
         public UserEntity UpdateUser(UserEntity user)
         {
-            var existingUser = _users.First(usr => usr.Id == user.Id);
+            var existingUser = _users.First(usr => usr.UserName.Equals(user.UserName));
 
             existingUser.IdentityType = user.IdentityType;
             existingUser.Roles = user.Roles;

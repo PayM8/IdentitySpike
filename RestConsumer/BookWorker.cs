@@ -1,9 +1,10 @@
 ﻿
-namespace RestCosumer
+
+namespace RestConsumer
 {
     using System;
+    using System.Threading;
     using Spike.Contracts.Books;
-    using RestConsumer;
 
     public static class BookWorker
     {
@@ -36,7 +37,7 @@ namespace RestCosumer
             var client = new BookClient();
             client.PostSingleBook("api/book", book);
 
-            Console.ReadKey();
+            Thread.Sleep(2000);
         }
 
         public static string Display(this Book book)
