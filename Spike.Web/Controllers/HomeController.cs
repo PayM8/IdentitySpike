@@ -4,23 +4,24 @@ namespace Spike.Web.Controllers
     using System.Web.Mvc;
     using Models;
     using System.Linq;
-    using Providers.WCF.Proxy;
-
-    public class HomeController : Controller
+ 
+    public class HomeController : ControllerBase
     {
+
         public ActionResult Index()
         {
-           var provider = ProviderFactory.CreateSecurityProvider();
-           var user = provider.GetUser("marius");
+            //var user = new ApplicationUser() { UserName = "Marius"};
+           // var result =  UserManager.CreateAsync(user, user.Password);
 
             var homeModel = new Home()
             {
-                UserName = user.UserName
+                LoginModel = new LoginModel { UserName = "marius" }
             };
 
             return View(homeModel);
         }
 
+        
         public ActionResult GetOption(string option)
         {
             var output = string.Empty;

@@ -4,7 +4,7 @@ namespace Spike.Security.Models
     using System.Threading.Tasks;
     using Microsoft.AspNet.Identity;
     using Contracts.Security;
-
+    /*
     public class CustomUserManager : UserManager<ApplicationUser>
     {
         public CustomUserManager()
@@ -63,4 +63,6 @@ namespace Spike.Security.Models
             }
         }
     }
+ 
+     * */
 }

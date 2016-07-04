@@ -20,7 +20,8 @@
 <h2>Identity Spike</h2>
 
 <p>This spike shows how to pass custom identity from multiple entry points and over N-Tier</p>
-<p>Logged in user: @Html.Label(string.Format("{0}", Model.UserName))</p>
+
+@Html.Partial("Login", Model.LoginModel)
 
 <ul>
     <li>MVC Website</li>

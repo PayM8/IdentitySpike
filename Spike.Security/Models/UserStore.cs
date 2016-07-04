@@ -5,28 +5,32 @@ namespace Spike.Security.Models
     using System.Threading.Tasks;
     using Microsoft.AspNet.Identity;
     using Contracts.Security;
+    using Contracts.Providers;
 
     public class UserStore<TUser> :
         IUserStore<TUser>, IUserPasswordStore<TUser>
         where TUser : ApplicationUser
     {
+        public ISecurityProvider Provider { get; private set; }
+
+        public UserStore(ISecurityProvider provider)
+        {
+            this.Provider = provider;
+        }
 
         public Task CreateAsync(TUser user)
         {
             if (user == null)
                 throw new ArgumentNullException();
 
-            // Create user from provider
-            return null;
+           var newUser = Provider.RegisterUser(user);
+
+           return Task.FromResult<object>(newUser);
         }
 
         public Task<TUser> FindByIdAsync(string id)
         {
-            if (string.IsNullOrEmpty(id))
-                throw new ArgumentException();
-
-            // Get User from provider
-            return null;
+            throw new NotSupportedException("Method Find User By Id is not supported.");
         }
 
         public Task<TUser> FindByNameAsync(string userName)
@@ -34,17 +38,14 @@ namespace Spike.Security.Models
             if (string.IsNullOrEmpty(userName))
                 throw new ArgumentException("Missing user name");
 
-            // Find user by username
-            return null;
+            var user = Provider.GetUser(userName);
+
+            return Task.FromResult(user as TUser);
         }
 
         public Task UpdateAsync(TUser user)
         {
-            if (user == null)
-                throw new ArgumentException("Missing user");
-
-            // Update user object
-            return null;
+            throw new NotSupportedException("Method Find By Id is not supported.");
         }
 
         public Task DeleteAsync(TUser user)
@@ -52,8 +53,9 @@ namespace Spike.Security.Models
             if (user == null)
                 throw new ArgumentException("Missing user");
 
-            // Soft Delete user from provider
-            return null;
+            var deletedUser = Provider.DeleteUser(user.UserName);
+
+            return Task.FromResult(deletedUser as TUser);
         }
 
         public Task SetPasswordHashAsync(TUser user, string passwordHash)
