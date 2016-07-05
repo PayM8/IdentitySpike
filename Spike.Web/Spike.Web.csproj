@@ -145,6 +145,12 @@
     <Content Include="Views\Home\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="App_Code\Security\ApplicationSignInManager.cs" />
+    <Compile Include="App_Code\Security\ApplicationAuthenticationManager.cs" />
+    <Compile Include="App_Code\Security\ApplicationUserManager.cs" />
+    <Compile Include="App_Code\Security\EmailService.cs" />
+    <Compile Include="App_Code\Security\SmsService.cs" />
+    <Compile Include="App_Code\Security\UserStore.cs" />
     <Compile Include="App_Code\Startup.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
@@ -169,7 +175,7 @@
     <Content Include="packages.config" />
     <Content Include="Views\Shared\_layout.cshtml" />
     <Content Include="Views\Home\GetOption.cshtml" />
-    <Content Include="Views\Shared\Login.cshtml" />
+    <Content Include="Views\Shared\UserLogin.cshtml" />
     <Content Include="Views\Account\Register.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>

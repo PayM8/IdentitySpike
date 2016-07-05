@@ -9,6 +9,8 @@ namespace Spike.Web.Models
             UserName = string.Empty;
         }
 
+        public bool IsLoggedIn { get; set; }
+
         public string UserName { get; set; }
 
         public string Result { get; set; }

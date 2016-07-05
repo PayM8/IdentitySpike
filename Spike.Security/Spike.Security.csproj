@@ -65,8 +65,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ApplicationUserManager.cs" />
-    <Compile Include="Models\UserStore.cs" />
-    <Compile Include="Models\UserManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -78,6 +76,9 @@
       <Project>{d23623aa-b634-4df1-84df-eeeb7e10f8f3}</Project>
       <Name>Spike.Contracts</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Models\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

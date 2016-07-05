@@ -1,29 +1,25 @@
 ﻿
-namespace Spike.Security
+namespace Spike.Web.Security
 {
     using System;
     using Microsoft.AspNet.Identity;
-    using Contracts.Security;
-    using System.Threading.Tasks;
     using Microsoft.AspNet.Identity.Owin;
     using Microsoft.Owin;
-    using Contracts.Providers;
+    using Contracts.Security;
+    using Providers.WCF.Proxy;
 
-    /*
     public class ApplicationUserManager : UserManager<ApplicationUser>
     {
-        public ApplicationUserManager(IUserStore<ApplicationUser> store, ISecurityProvider provider)
+        public ApplicationUserManager(IUserStore<ApplicationUser> store)
             : base(store)
         {
-            this._securityProvider = provider;
         }
 
-        private ISecurityProvider _securityProvider;
-
-        public ApplicationUserManager Create(IdentityFactoryOptions<ApplicationUserManager> options, IOwinContext context)
+        public static ApplicationUserManager Create(IdentityFactoryOptions<ApplicationUserManager> options, IOwinContext context)
         {
-            var manager = new ApplicationUserManager(new UserStore<ApplicationUser>(_securityProvider), _securityProvider);
-            
+            var securityProvider = ProviderFactory.CreateSecurityProvider();
+            var manager = new ApplicationUserManager(new UserStore<ApplicationUser>(securityProvider));
+
             // Configure validation logic for usernames
             manager.UserValidator = new UserValidator<ApplicationUser>(manager)
             {
@@ -57,36 +53,15 @@ namespace Spike.Security
                 Subject = "Security Code",
                 BodyFormat = "Your security code is {0}"
             });
-
             manager.EmailService = new EmailService();
             manager.SmsService = new SmsService();
-
             var dataProtectionProvider = options.DataProtectionProvider;
             if (dataProtectionProvider != null)
             {
                 manager.UserTokenProvider =
                     new DataProtectorTokenProvider<ApplicationUser>(dataProtectionProvider.Create("ASP.NET Identity"));
             }
-
             return manager;
         }
     }
-
-    public class EmailService : IIdentityMessageService
-    {
-        public Task SendAsync(IdentityMessage message)
-        {
-            // Plug in your email service here to send an email.
-            return Task.FromResult(0);
-        }
-    }
-
-    public class SmsService : IIdentityMessageService
-    {
-        public Task SendAsync(IdentityMessage message)
-        {
-            // Plug in your SMS service here to send a text message.
-            return Task.FromResult(0);
-        }
-    } */
 }

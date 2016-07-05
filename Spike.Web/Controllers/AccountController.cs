@@ -1,33 +1,46 @@
 ﻿
-using System.Linq;
-
 namespace Spike.Web.Controllers
 {
     using System;
-    using System.Threading.Tasks;
+    using Microsoft.AspNet.Identity.Owin;
     using System.Web.Mvc;
     using Microsoft.AspNet.Identity;
     using Contracts.Security;
     using Providers.WCF.Proxy;
-    using Security.Models;
     using Models;
+    using Security;
     
     public class AccountController : ControllerBase
     {
         private readonly IUserStore<ApplicationUser> _store = new UserStore<ApplicationUser>(ProviderFactory.CreateSecurityProvider());
-
- 
-        public ActionResult Login(string userName, string password)
+        
+        public ActionResult UserLogin(string userName, string password)
         {
-            var identity = new ApplicationUser { UserName = userName };
-            var loginResult = UserManager.CreateAsync(identity, password);
+            var result = new SignInManager<ApplicationUser, string>(this.UserManager, this.AuthenticationManager)
+                .PasswordSignInAsync(userName, password, false, shouldLockout: false);
 
             var model = new LoginModel
             {
-                UserName = userName,
-                Result = string.Format("Is Succes: [{0}] Has Errors [{1}]", (loginResult.Result.Succeeded) ? 
-                "Yes" : "No", (loginResult.Result.Errors.Any()) ? "Yes" : "No")
+                UserName = userName
             };
+
+            switch (result.Result)
+            {
+                case SignInStatus.Success:
+                    model.IsLoggedIn = true;
+                    break;
+                case SignInStatus.LockedOut:
+                    model.Result = "Locked out";
+                    break;
+                case SignInStatus.RequiresVerification:
+                    //  RedirectToAction("SendCode", new { ReturnUrl = returnUrl, RememberMe = model.RememberMe });
+                    break;
+                case SignInStatus.Failure:
+                    break;
+                default:
+                    ModelState.AddModelError("", "Invalid login attempt.");
+                    return View(model);
+            }
 
             return View(model);
         }

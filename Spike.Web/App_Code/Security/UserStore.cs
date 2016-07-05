@@ -1,15 +1,17 @@
-﻿
-namespace Spike.Security.Models
+﻿using Microsoft.AspNet.Identity;
+
+namespace Spike.Web.Security
 {
     using System;
     using System.Threading.Tasks;
-    using Microsoft.AspNet.Identity;
-    using Contracts.Security;
+    using Microsoft.AspNet.Identity.Owin;
     using Contracts.Providers;
+    using Contracts.Security;
+    using Providers.WCF.Proxy;
 
     public class UserStore<TUser> :
-        IUserStore<TUser>, IUserPasswordStore<TUser>
-        where TUser : ApplicationUser
+          IUserStore<TUser>, IUserPasswordStore<TUser>
+          where TUser : ApplicationUser
     {
         public ISecurityProvider Provider { get; private set; }
 
@@ -23,9 +25,9 @@ namespace Spike.Security.Models
             if (user == null)
                 throw new ArgumentNullException();
 
-           var newUser = Provider.RegisterUser(user);
+            var newUser = Provider.RegisterUser(user);
 
-           return Task.FromResult<object>(newUser);
+            return Task.FromResult<object>(newUser);
         }
 
         public Task<TUser> FindByIdAsync(string id)
@@ -76,6 +78,26 @@ namespace Spike.Security.Models
             return Task.FromResult(hasPassword);
         }
 
-        public void Dispose() {}
+        public virtual async Task<SignInStatus> PasswordSignInAsync(string userName, string password, bool isPersistent, bool shouldLockout)
+        {
+            var provider = ProviderFactory.CreateSecurityProvider();
+
+            var user = provider.GetUser(userName);
+
+            //TODO: Expand
+
+            // Verify Password
+            const bool verifyPassword = true;
+
+            if (user != null && verifyPassword)
+            {
+                return SignInStatus.Success;
+            }
+
+            return SignInStatus.Failure;
+        }
+
+        public void Dispose() { }
     }
+
 }

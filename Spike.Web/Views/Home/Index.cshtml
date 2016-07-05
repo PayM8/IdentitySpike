@@ -11,6 +11,7 @@
         
         $().ready(function() {
             site.page.links.submitOption = '@Url.Action("GetOption", "Home")';
+            site.page.links.userLogin = '@Url.Action("UserLogin", "Account")';
         });
         
     </script>
@@ -21,8 +22,9 @@
 
 <p>This spike shows how to pass custom identity from multiple entry points and over N-Tier</p>
 
-@Html.Partial("Login", Model.LoginModel)
+@Html.Partial("UserLogin", Model.LoginModel)
 
+<br />
 <ul>
     <li>MVC Website</li>
     <li>Web API</li>

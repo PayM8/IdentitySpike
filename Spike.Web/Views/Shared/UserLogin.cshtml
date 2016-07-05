@@ -1,0 +1,35 @@
+﻿@model Spike.Web.Models.LoginModel
+
+<div id="loginContainer">
+    <div style="padding-left: 50px; border: 1px solid gray; width: 350px">
+
+        <div class="row">
+            <div class="col">Username</div>
+            <div class="col">@Html.TextBox("Username", @Model.UserName)</div>
+        </div>
+
+        @if (!Model.IsLoggedIn)
+        {
+            <div class="row">
+                <div class="col">Password</div>
+                <div class="col">@Html.TextBox("Password", string.Empty)</div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <input type="button" value="Login" onclick="site.page.userLogin()" />
+                </div>
+            </div>
+        }
+        else
+        {
+            <div class="row">
+                <div class="col">Successfully Logged In</div>
+            </div>
+        }
+
+        <div class="row">
+            <div class="col">@Html.Label(@Model.Result)</div>
+        </div>
+    </div>
+</div>
+
