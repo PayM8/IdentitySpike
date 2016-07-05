@@ -16,15 +16,14 @@ namespace Spike.Web.Controllers
         
         public ActionResult UserLogin(string userName, string password)
         {
-            var result = new SignInManager<ApplicationUser, string>(this.UserManager, this.AuthenticationManager)
-                .PasswordSignInAsync(userName, password, false, shouldLockout: false);
+            var task = this.UserManager.PasswordSignIn(userName, password, false, false);
 
             var model = new LoginModel
             {
                 UserName = userName
             };
 
-            switch (result.Result)
+            switch (task.Result)
             {
                 case SignInStatus.Success:
                     model.IsLoggedIn = true;

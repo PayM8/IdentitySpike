@@ -4,10 +4,8 @@ namespace Spike.Web.Security
 {
     using System;
     using System.Threading.Tasks;
-    using Microsoft.AspNet.Identity.Owin;
     using Contracts.Providers;
     using Contracts.Security;
-    using Providers.WCF.Proxy;
 
     public class UserStore<TUser> :
           IUserStore<TUser>, IUserPasswordStore<TUser>
@@ -76,25 +74,6 @@ namespace Spike.Web.Security
         {
             var hasPassword = string.IsNullOrEmpty(user.Password);
             return Task.FromResult(hasPassword);
-        }
-
-        public virtual async Task<SignInStatus> PasswordSignInAsync(string userName, string password, bool isPersistent, bool shouldLockout)
-        {
-            var provider = ProviderFactory.CreateSecurityProvider();
-
-            var user = provider.GetUser(userName);
-
-            //TODO: Expand
-
-            // Verify Password
-            const bool verifyPassword = true;
-
-            if (user != null && verifyPassword)
-            {
-                return SignInStatus.Success;
-            }
-
-            return SignInStatus.Failure;
         }
 
         public void Dispose() { }

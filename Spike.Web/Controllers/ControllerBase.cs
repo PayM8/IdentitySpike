@@ -10,7 +10,7 @@ namespace Spike.Web.Controllers
 {
     public class ControllerBase : Controller
     {
-        public readonly IUserStore<ApplicationUser> UserStore;
+        public readonly UserStore<ApplicationUser> UserStore;
         public readonly ApplicationSignInManager SignInManager;
         public readonly ApplicationUserManager UserManager;
         public readonly ApplicationAuthenticationManager AuthenticationManager;

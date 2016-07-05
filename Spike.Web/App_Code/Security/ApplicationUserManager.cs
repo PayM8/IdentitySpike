@@ -7,6 +7,7 @@ namespace Spike.Web.Security
     using Microsoft.Owin;
     using Contracts.Security;
     using Providers.WCF.Proxy;
+    using System.Threading.Tasks;
 
     public class ApplicationUserManager : UserManager<ApplicationUser>
     {
@@ -62,6 +63,34 @@ namespace Spike.Web.Security
                     new DataProtectorTokenProvider<ApplicationUser>(dataProtectionProvider.Create("ASP.NET Identity"));
             }
             return manager;
+        }
+
+        public ApplicationUser Find(string userName, string password)
+        {
+            var provider = ProviderFactory.CreateSecurityProvider();
+
+            var user = provider.GetUser(userName);
+
+            return user;
+        }
+
+        public Task<SignInStatus> PasswordSignIn(string userName, string password, bool isPersistent, bool shouldLockout)
+        {
+            var provider = ProviderFactory.CreateSecurityProvider();
+
+            var user = provider.GetUser(userName);
+
+            //TODO: Expand
+
+            // Verify Password
+            const bool verifyPassword = true;
+
+            if (user != null && verifyPassword)
+            {
+                return Task.FromResult(SignInStatus.Success);
+            }
+
+            return Task.FromResult(SignInStatus.Failure);
         }
     }
 }
