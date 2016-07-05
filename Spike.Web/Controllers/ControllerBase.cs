@@ -10,16 +10,16 @@ namespace Spike.Web.Controllers
 {
     public class ControllerBase : Controller
     {
-        public readonly UserStore<ApplicationUser> UserStore;
+        public readonly UserStore<CommonIdentity> UserStore;
         public readonly ApplicationSignInManager SignInManager;
-        public readonly ApplicationUserManager UserManager;
+        public readonly CommonIdentityManager UserManager;
         public readonly ApplicationAuthenticationManager AuthenticationManager;
         public const bool RememberMe = false;
 
         public ControllerBase()
         {
-            this.UserStore = new UserStore<ApplicationUser>(ProviderFactory.CreateSecurityProvider());
-            this.UserManager = new ApplicationUserManager(this.UserStore);
+            this.UserStore = new UserStore<CommonIdentity>(ProviderFactory.CreateSecurityProvider());
+            this.UserManager = new CommonIdentityManager(this.UserStore);
             this.AuthenticationManager = new ApplicationAuthenticationManager();
             this.SignInManager = new ApplicationSignInManager(UserManager, AuthenticationManager);
         }

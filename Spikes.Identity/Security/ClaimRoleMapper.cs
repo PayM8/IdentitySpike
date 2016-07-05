@@ -8,7 +8,7 @@ namespace Spike.Providers.Security
     
     public class ClaimRoleMapper
     {
-        public ClaimRoleMapper(IEnumerable<UserRole> userRoles)
+        public ClaimRoleMapper(IEnumerable<IdentityRole> userRoles)
         {
             this.UserRoles = userRoles;
             this.UserClaims = new List<Claim>();
@@ -17,20 +17,20 @@ namespace Spike.Providers.Security
             {
                 switch (role)
                 {
-                    case UserRole.Basic:
+                    case IdentityRole.Basic:
                         this.AddClaims(_basicRoleClaims);
                         break;
-                    case UserRole.Admin:
+                    case IdentityRole.Admin:
                         this.AddClaims(_adminClaims);
                         break;
-                    case UserRole.SuperUser:
+                    case IdentityRole.Super:
                         this.AddClaims(_superUserClaims);
                         break;
                 }
             }
         }
 
-        private IEnumerable<UserRole> UserRoles { get; set; }
+        private IEnumerable<IdentityRole> UserRoles { get; set; }
         public List<Claim> UserClaims { get; private set; }
 
         private static readonly Claim BasicUser = new Claim("Access", "BasicUser");

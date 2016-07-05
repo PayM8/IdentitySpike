@@ -10,9 +10,9 @@ namespace Spike.Web.Security
     using Contracts.Security;
     using Providers.WCF.Proxy;
 
-    public class ApplicationSignInManager : SignInManager<ApplicationUser, string>
+    public class ApplicationSignInManager : SignInManager<CommonIdentity, string>
     {
-        public ApplicationSignInManager(ApplicationUserManager userManager, IAuthenticationManager authenticationManager)
+        public ApplicationSignInManager(CommonIdentityManager userManager, IAuthenticationManager authenticationManager)
             : base(userManager, authenticationManager)
         {
         }
@@ -36,7 +36,7 @@ namespace Spike.Web.Security
             return SignInStatus.Failure;
         }
 
-        public Task<ClaimsIdentity> CreateUserIdentityAsync(ApplicationUserManager userManager, ApplicationUser user)
+        public Task<ClaimsIdentity> CreateUserIdentityAsync(CommonIdentityManager userManager, CommonIdentity user)
         {
             var provider = ProviderFactory.CreateSecurityProvider();
 
@@ -45,7 +45,7 @@ namespace Spike.Web.Security
 
         public static ApplicationSignInManager Create(IdentityFactoryOptions<ApplicationSignInManager> options, IOwinContext context)
         {
-            return new ApplicationSignInManager(context.GetUserManager<ApplicationUserManager>(), context.Authentication);
+            return new ApplicationSignInManager(context.GetUserManager<CommonIdentityManager>(), context.Authentication);
         }
     }
 }

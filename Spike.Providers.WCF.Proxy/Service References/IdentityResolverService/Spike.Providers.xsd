@@ -5,14 +5,14 @@
   <xs:element name="RegisterUser">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/Spike.Contracts.Security" minOccurs="0" name="user" nillable="true" type="q1:ApplicationUser" />
+        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/Spike.Contracts.Security" minOccurs="0" name="user" nillable="true" type="q1:CommonIdentity" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="RegisterUserResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/Spike.Contracts.Security" minOccurs="0" name="RegisterUserResult" nillable="true" type="q2:ApplicationUser" />
+        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/Spike.Contracts.Security" minOccurs="0" name="RegisterUserResult" nillable="true" type="q2:CommonIdentity" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -26,7 +26,7 @@
   <xs:element name="DeleteUserResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/Spike.Contracts.Security" minOccurs="0" name="DeleteUserResult" nillable="true" type="q3:ApplicationUser" />
+        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/Spike.Contracts.Security" minOccurs="0" name="DeleteUserResult" nillable="true" type="q3:CommonIdentity" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -40,7 +40,7 @@
   <xs:element name="GetUserResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/Spike.Contracts.Security" minOccurs="0" name="GetUserResult" nillable="true" type="q4:ApplicationUser" />
+        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/Spike.Contracts.Security" minOccurs="0" name="GetUserResult" nillable="true" type="q4:CommonIdentity" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>

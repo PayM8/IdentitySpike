@@ -24,7 +24,7 @@ namespace Spike.Adapters
             return DatabaseStub.Instance.GetUser(userName);
         }
 
-        public static void AddUserRole(string userName, UserRole role)
+        public static void AddUserRole(string userName, IdentityRole role)
         {
             var user = DatabaseStub.Instance.GetUser(userName);
             if (user == null)

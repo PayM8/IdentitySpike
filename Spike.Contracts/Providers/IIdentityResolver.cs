@@ -5,13 +5,13 @@ namespace Spike.Contracts.Providers
     using System.Security.Claims;
     using Security;
 
-    public interface ISecurityProvider
+    public interface IIdentityResolver
     {
-        ApplicationUser RegisterUser(ApplicationUser user);
+        CommonIdentity RegisterUser(CommonIdentity user);
 
-        ApplicationUser DeleteUser(string userName);
+        CommonIdentity DeleteUser(string userName);
 
-        ApplicationUser GetUser(string userName);
+        CommonIdentity GetUser(string userName);
 
         IEnumerable<Claim> GetUserClaims(string userName);
     }

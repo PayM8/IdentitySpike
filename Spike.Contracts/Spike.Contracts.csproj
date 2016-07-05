@@ -45,9 +45,10 @@
     <Compile Include="Books\Book.cs" />
     <Compile Include="Providers\IBookProvider.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Providers\ISecurityProvider.cs" />
-    <Compile Include="Security\ApplicationUser.cs" />
-    <Compile Include="Security\UserRole.cs" />
+    <Compile Include="Providers\IIdentityResolver.cs" />
+    <Compile Include="Security\CommonIdentity.cs" />
+    <Compile Include="Security\IdenityRole.cs" />
+    <Compile Include="Security\IdenityType.cs" />
     <Compile Include="Users\IdentityType.cs" />
   </ItemGroup>
   <ItemGroup>

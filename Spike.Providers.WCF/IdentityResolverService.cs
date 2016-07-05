@@ -8,10 +8,10 @@ namespace Spike.Providers.WCF
     using Contracts.Security;
 
     [ServiceContract(Namespace = "Spike.Providers")]
-    public class SecurityProviderService : ISecurityProvider
+    public class IdentityResolverService : IIdentityResolver
     {
         [OperationContract]
-        public ApplicationUser RegisterUser(ApplicationUser user)
+        public CommonIdentity RegisterUser(CommonIdentity user)
         {
             var provider = ProviderFactory.CreateSecurityProvider();
 
@@ -19,7 +19,7 @@ namespace Spike.Providers.WCF
         }
 
         [OperationContract]
-        public ApplicationUser DeleteUser(string userName)
+        public CommonIdentity DeleteUser(string userName)
         {
             var provider = ProviderFactory.CreateSecurityProvider();
 
@@ -27,7 +27,7 @@ namespace Spike.Providers.WCF
         }
 
         [OperationContract]
-        public ApplicationUser GetUser(string userName)
+        public CommonIdentity GetUser(string userName)
         {
             var provider = ProviderFactory.CreateSecurityProvider();
 

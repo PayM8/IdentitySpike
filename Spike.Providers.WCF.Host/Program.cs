@@ -10,7 +10,7 @@ namespace Spike.Providers.WCF.Host
         public static void Main(string[] args)
         {
             var bookHost = new ServiceHost(typeof(BookProviderService));
-            var securityHost = new ServiceHost(typeof(SecurityProviderService));
+            var securityHost = new ServiceHost(typeof(IdentityResolverService));
 
             try
             {

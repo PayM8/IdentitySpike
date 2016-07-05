@@ -5,51 +5,50 @@
       <xsd:import namespace="Spike.Providers" />
       <xsd:import namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
       <xsd:import namespace="http://schemas.datacontract.org/2004/07/Spike.Contracts.Security" />
-      <xsd:import namespace="http://schemas.datacontract.org/2004/07/Spike.Contracts.Users" />
       <xsd:import namespace="http://schemas.datacontract.org/2004/07/System.Security.Claims" />
       <xsd:import namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
     </xsd:schema>
   </wsdl:types>
-  <wsdl:message name="SecurityProviderService_RegisterUser_InputMessage">
+  <wsdl:message name="IdentityResolverService_RegisterUser_InputMessage">
     <wsdl:part name="parameters" element="tns:RegisterUser" />
   </wsdl:message>
-  <wsdl:message name="SecurityProviderService_RegisterUser_OutputMessage">
+  <wsdl:message name="IdentityResolverService_RegisterUser_OutputMessage">
     <wsdl:part name="parameters" element="tns:RegisterUserResponse" />
   </wsdl:message>
-  <wsdl:message name="SecurityProviderService_DeleteUser_InputMessage">
+  <wsdl:message name="IdentityResolverService_DeleteUser_InputMessage">
     <wsdl:part name="parameters" element="tns:DeleteUser" />
   </wsdl:message>
-  <wsdl:message name="SecurityProviderService_DeleteUser_OutputMessage">
+  <wsdl:message name="IdentityResolverService_DeleteUser_OutputMessage">
     <wsdl:part name="parameters" element="tns:DeleteUserResponse" />
   </wsdl:message>
-  <wsdl:message name="SecurityProviderService_GetUser_InputMessage">
+  <wsdl:message name="IdentityResolverService_GetUser_InputMessage">
     <wsdl:part name="parameters" element="tns:GetUser" />
   </wsdl:message>
-  <wsdl:message name="SecurityProviderService_GetUser_OutputMessage">
+  <wsdl:message name="IdentityResolverService_GetUser_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetUserResponse" />
   </wsdl:message>
-  <wsdl:message name="SecurityProviderService_GetUserClaims_InputMessage">
+  <wsdl:message name="IdentityResolverService_GetUserClaims_InputMessage">
     <wsdl:part name="parameters" element="tns:GetUserClaims" />
   </wsdl:message>
-  <wsdl:message name="SecurityProviderService_GetUserClaims_OutputMessage">
+  <wsdl:message name="IdentityResolverService_GetUserClaims_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetUserClaimsResponse" />
   </wsdl:message>
-  <wsdl:portType name="SecurityProviderService">
+  <wsdl:portType name="IdentityResolverService">
     <wsdl:operation name="RegisterUser">
-      <wsdl:input wsaw:Action="Spike.Providers/SecurityProviderService/RegisterUser" message="tns:SecurityProviderService_RegisterUser_InputMessage" />
-      <wsdl:output wsaw:Action="Spike.Providers/SecurityProviderService/RegisterUserResponse" message="tns:SecurityProviderService_RegisterUser_OutputMessage" />
+      <wsdl:input wsaw:Action="Spike.Providers/IdentityResolverService/RegisterUser" message="tns:IdentityResolverService_RegisterUser_InputMessage" />
+      <wsdl:output wsaw:Action="Spike.Providers/IdentityResolverService/RegisterUserResponse" message="tns:IdentityResolverService_RegisterUser_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="DeleteUser">
-      <wsdl:input wsaw:Action="Spike.Providers/SecurityProviderService/DeleteUser" message="tns:SecurityProviderService_DeleteUser_InputMessage" />
-      <wsdl:output wsaw:Action="Spike.Providers/SecurityProviderService/DeleteUserResponse" message="tns:SecurityProviderService_DeleteUser_OutputMessage" />
+      <wsdl:input wsaw:Action="Spike.Providers/IdentityResolverService/DeleteUser" message="tns:IdentityResolverService_DeleteUser_InputMessage" />
+      <wsdl:output wsaw:Action="Spike.Providers/IdentityResolverService/DeleteUserResponse" message="tns:IdentityResolverService_DeleteUser_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="GetUser">
-      <wsdl:input wsaw:Action="Spike.Providers/SecurityProviderService/GetUser" message="tns:SecurityProviderService_GetUser_InputMessage" />
-      <wsdl:output wsaw:Action="Spike.Providers/SecurityProviderService/GetUserResponse" message="tns:SecurityProviderService_GetUser_OutputMessage" />
+      <wsdl:input wsaw:Action="Spike.Providers/IdentityResolverService/GetUser" message="tns:IdentityResolverService_GetUser_InputMessage" />
+      <wsdl:output wsaw:Action="Spike.Providers/IdentityResolverService/GetUserResponse" message="tns:IdentityResolverService_GetUser_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="GetUserClaims">
-      <wsdl:input wsaw:Action="Spike.Providers/SecurityProviderService/GetUserClaims" message="tns:SecurityProviderService_GetUserClaims_InputMessage" />
-      <wsdl:output wsaw:Action="Spike.Providers/SecurityProviderService/GetUserClaimsResponse" message="tns:SecurityProviderService_GetUserClaims_OutputMessage" />
+      <wsdl:input wsaw:Action="Spike.Providers/IdentityResolverService/GetUserClaims" message="tns:IdentityResolverService_GetUserClaims_InputMessage" />
+      <wsdl:output wsaw:Action="Spike.Providers/IdentityResolverService/GetUserClaimsResponse" message="tns:IdentityResolverService_GetUserClaims_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
 </wsdl:definitions>

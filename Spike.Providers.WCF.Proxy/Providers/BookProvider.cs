@@ -11,21 +11,21 @@ namespace Spike.Providers.WCF.Proxy.Providers
         {
             var consumer = new ServiceClientWrapper<BookProviderService.BookProviderServiceClient, BookProviderService.BookProviderService>();
 
-            return consumer.Excecute(service => service.AddBook(book.Map())).Map();
+            return consumer.Excecute(service => service.AddBook(book));
         }
 
         public Book GetBook(int id)
         {
             var consumer = new ServiceClientWrapper<BookProviderService.BookProviderServiceClient, BookProviderService.BookProviderService>();
 
-            return consumer.Excecute(service => service.GetBook(id).Map());
+            return consumer.Excecute(service => service.GetBook(id));
         }
 
         public IEnumerable<Book> GetAllBooks()
         {
             var consumer = new ServiceClientWrapper<BookProviderService.BookProviderServiceClient, BookProviderService.BookProviderService>();
 
-            return consumer.Excecute(service => service.GetAllBooks().Map());
+            return consumer.Excecute(service => service.GetAllBooks());
         }
     }
 }

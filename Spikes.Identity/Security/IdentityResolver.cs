@@ -7,19 +7,19 @@ namespace Spike.Providers.Security
     using Contracts.Security;
     using Adapters;
 
-    public class SecurityProvider : ISecurityProvider
+    public class IdentityResolver : IIdentityResolver
     {
-        public ApplicationUser RegisterUser(ApplicationUser user)
+        public CommonIdentity RegisterUser(CommonIdentity user)
         {
             return SecurityAdapter.RegisterUser(user.Map()).Map();
         }
 
-        public ApplicationUser DeleteUser(string userName)
+        public CommonIdentity DeleteUser(string userName)
         {
             return SecurityAdapter.DeleteUser(userName).Map();
         }
 
-        public ApplicationUser GetUser(string userName)
+        public CommonIdentity GetUser(string userName)
         {
             return SecurityAdapter.GetUser(userName).Map();
         }
@@ -39,7 +39,7 @@ namespace Spike.Providers.Security
             return claims;
         }
 
-        private static List<Claim> GetClaimsForRoles(IEnumerable<UserRole> roles)
+        private static List<Claim> GetClaimsForRoles(IEnumerable<IdentityRole> roles)
         {
             return new ClaimRoleMapper(roles).UserClaims;
         }

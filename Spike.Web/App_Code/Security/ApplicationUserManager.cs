@@ -9,20 +9,20 @@ namespace Spike.Web.Security
     using Providers.WCF.Proxy;
     using System.Threading.Tasks;
 
-    public class ApplicationUserManager : UserManager<ApplicationUser>
+    public class CommonIdentityManager : UserManager<CommonIdentity>
     {
-        public ApplicationUserManager(IUserStore<ApplicationUser> store)
+        public CommonIdentityManager(IUserStore<CommonIdentity> store)
             : base(store)
         {
         }
 
-        public static ApplicationUserManager Create(IdentityFactoryOptions<ApplicationUserManager> options, IOwinContext context)
+        public static CommonIdentityManager Create(IdentityFactoryOptions<CommonIdentityManager> options, IOwinContext context)
         {
             var securityProvider = ProviderFactory.CreateSecurityProvider();
-            var manager = new ApplicationUserManager(new UserStore<ApplicationUser>(securityProvider));
+            var manager = new CommonIdentityManager(new UserStore<CommonIdentity>(securityProvider));
 
             // Configure validation logic for usernames
-            manager.UserValidator = new UserValidator<ApplicationUser>(manager)
+            manager.UserValidator = new UserValidator<CommonIdentity>(manager)
             {
                 AllowOnlyAlphanumericUserNames = false,
                 RequireUniqueEmail = true
@@ -45,11 +45,11 @@ namespace Spike.Web.Security
 
             // Register two factor authentication providers. This application uses Phone and Emails as a step of receiving a code for verifying the user
             // You can write your own provider and plug it in here.
-            manager.RegisterTwoFactorProvider("Phone Code", new PhoneNumberTokenProvider<ApplicationUser>
+            manager.RegisterTwoFactorProvider("Phone Code", new PhoneNumberTokenProvider<CommonIdentity>
             {
                 MessageFormat = "Your security code is {0}"
             });
-            manager.RegisterTwoFactorProvider("Email Code", new EmailTokenProvider<ApplicationUser>
+            manager.RegisterTwoFactorProvider("Email Code", new EmailTokenProvider<CommonIdentity>
             {
                 Subject = "Security Code",
                 BodyFormat = "Your security code is {0}"
@@ -60,12 +60,12 @@ namespace Spike.Web.Security
             if (dataProtectionProvider != null)
             {
                 manager.UserTokenProvider =
-                    new DataProtectorTokenProvider<ApplicationUser>(dataProtectionProvider.Create("ASP.NET Identity"));
+                    new DataProtectorTokenProvider<CommonIdentity>(dataProtectionProvider.Create("ASP.NET Identity"));
             }
             return manager;
         }
 
-        public ApplicationUser Find(string userName, string password)
+        public CommonIdentity Find(string userName, string password)
         {
             var provider = ProviderFactory.CreateSecurityProvider();
 

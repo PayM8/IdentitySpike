@@ -9,11 +9,11 @@ namespace Spike.Web.Security
 
     public class UserStore<TUser> :
           IUserStore<TUser>, IUserPasswordStore<TUser>
-          where TUser : ApplicationUser
+          where TUser : CommonIdentity
     {
-        public ISecurityProvider Provider { get; private set; }
+        public IIdentityResolver Provider { get; private set; }
 
-        public UserStore(ISecurityProvider provider)
+        public UserStore(IIdentityResolver provider)
         {
             this.Provider = provider;
         }

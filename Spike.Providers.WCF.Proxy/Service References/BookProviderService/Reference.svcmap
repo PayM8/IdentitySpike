@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="34cb722d-69e6-44f2-9ffc-f95de026a0a4" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="2c114245-3272-411f-afd7-001123a9907e" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
   <ClientOptions>
     <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
     <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
@@ -22,11 +22,11 @@
     <MetadataSource Address="http://localhost:8733/BookProviderService/mex" Protocol="mex" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="Spike.Providers.wsdl" MetadataType="Wsdl" ID="5eb87752-b7bb-4768-adb6-293495b9955b" SourceId="1" SourceUrl="http://localhost:8733/BookProviderService/mex" />
-    <MetadataFile FileName="service.wsdl" MetadataType="Wsdl" ID="2033155f-3a94-49b4-b6d9-668972f19baa" SourceId="1" SourceUrl="http://localhost:8733/BookProviderService/mex" />
-    <MetadataFile FileName="Spike.Providers.xsd" MetadataType="Schema" ID="ab955fd7-4373-459c-8d85-bfc61b5417ce" SourceId="1" SourceUrl="http://localhost:8733/BookProviderService/mex" />
-    <MetadataFile FileName="service.xsd" MetadataType="Schema" ID="9c09e0e8-3857-4ae8-a887-1a08c371f673" SourceId="1" SourceUrl="http://localhost:8733/BookProviderService/mex" />
-    <MetadataFile FileName="Spike.Contracts.Books.xsd" MetadataType="Schema" ID="e2107e87-890a-4f24-9356-bafc7f92c160" SourceId="1" SourceUrl="http://localhost:8733/BookProviderService/mex" />
+    <MetadataFile FileName="Spike.Providers.wsdl" MetadataType="Wsdl" ID="ec5a4b62-6fcc-4e8b-9668-ce1b2fa933d3" SourceId="1" SourceUrl="http://localhost:8733/BookProviderService/mex" />
+    <MetadataFile FileName="service.wsdl" MetadataType="Wsdl" ID="1c3f6f70-8942-4078-b101-d967006da1b9" SourceId="1" SourceUrl="http://localhost:8733/BookProviderService/mex" />
+    <MetadataFile FileName="Spike.Providers.xsd" MetadataType="Schema" ID="a1130aaa-7eff-49bb-9b58-96a4a743eaac" SourceId="1" SourceUrl="http://localhost:8733/BookProviderService/mex" />
+    <MetadataFile FileName="service.xsd" MetadataType="Schema" ID="e27a0675-e9ab-40e0-a7c8-f539d2f9ee49" SourceId="1" SourceUrl="http://localhost:8733/BookProviderService/mex" />
+    <MetadataFile FileName="Spike.Contracts.Books.xsd" MetadataType="Schema" ID="419e8e75-8fd6-49c3-8a03-b5685167d48b" SourceId="1" SourceUrl="http://localhost:8733/BookProviderService/mex" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

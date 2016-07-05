@@ -45,10 +45,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Providers\SecurityProvider.cs" />
+    <Compile Include="Providers\IdentityResolver.cs" />
     <Compile Include="Providers\BookProvider.cs" />
     <Compile Include="Builders\BookBuilder.cs" />
-    <Compile Include="Providers\Mapper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ProviderFactory.cs" />
     <Compile Include="Service References\BookProviderService\Reference.cs">
@@ -56,7 +55,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
-    <Compile Include="Service References\SecurityProviderService\Reference.cs">
+    <Compile Include="Service References\IdentityResolverService\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
@@ -69,7 +68,10 @@
   <ItemGroup>
     <None Include="app.config" />
     <None Include="packages.config" />
+    <None Include="Properties\DataSources\Spike.Contracts.Books.Book.datasource" />
+    <None Include="Properties\DataSources\Spike.Contracts.Security.ApplicationIdentity.datasource" />
     <None Include="Properties\DataSources\Spike.Contracts.Security.ApplicationUser.datasource" />
+    <None Include="Properties\DataSources\Spike.Contracts.Security.CommonIdentity.datasource" />
     <None Include="Service References\BookProviderService\service.wsdl" />
     <None Include="Service References\BookProviderService\service.xsd">
       <SubType>Designer</SubType>
@@ -77,37 +79,37 @@
     <None Include="Service References\BookProviderService\Spike.Contracts.Books.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\BookProviderService\Spike.Providers.WCF.Proxy.BookProviderService.Book.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
     <None Include="Service References\BookProviderService\Spike.Providers.wsdl" />
     <None Include="Service References\BookProviderService\Spike.Providers.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\SecurityProviderService\Arrays.xsd">
+    <None Include="Service References\IdentityResolverService\Arrays.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\SecurityProviderService\service.wsdl" />
-    <None Include="Service References\SecurityProviderService\service.xsd">
+    <None Include="Service References\IdentityResolverService\service.wsdl" />
+    <None Include="Service References\IdentityResolverService\service.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\SecurityProviderService\Spike.Contracts.Security.xsd">
+    <None Include="Service References\IdentityResolverService\Spike.Contracts.Security.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\SecurityProviderService\Spike.Contracts.Users.xsd">
+    <None Include="Service References\IdentityResolverService\Spike.Providers.wsdl" />
+    <None Include="Service References\IdentityResolverService\Spike.Providers.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\SecurityProviderService\Spike.Providers.wsdl" />
-    <None Include="Service References\SecurityProviderService\Spike.Providers.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\SecurityProviderService\System.Security.Claims.xsd">
+    <None Include="Service References\IdentityResolverService\System.Security.Claims.xsd">
       <SubType>Designer</SubType>
     </None>
   </ItemGroup>
   <ItemGroup>
     <WCFMetadataStorage Include="Service References\BookProviderService\" />
-    <WCFMetadataStorage Include="Service References\SecurityProviderService\" />
+    <WCFMetadataStorage Include="Service References\IdentityResolverService\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Spike.Contracts\Spike.Contracts.csproj">
+      <Project>{d23623aa-b634-4df1-84df-eeeb7e10f8f3}</Project>
+      <Name>Spike.Contracts</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="Service References\BookProviderService\configuration91.svcinfo" />
@@ -122,19 +124,13 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Spike.Contracts\Spike.Contracts.csproj">
-      <Project>{d23623aa-b634-4df1-84df-eeeb7e10f8f3}</Project>
-      <Name>Spike.Contracts</Name>
-    </ProjectReference>
+    <None Include="Service References\IdentityResolverService\configuration91.svcinfo" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Service References\SecurityProviderService\configuration91.svcinfo" />
+    <None Include="Service References\IdentityResolverService\configuration.svcinfo" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Service References\SecurityProviderService\configuration.svcinfo" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Service References\SecurityProviderService\Reference.svcmap">
+    <None Include="Service References\IdentityResolverService\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>

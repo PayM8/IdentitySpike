@@ -9,124 +9,29 @@
 //------------------------------------------------------------------------------
 
 namespace Spike.Providers.WCF.Proxy.BookProviderService {
-    using System.Runtime.Serialization;
-    using System;
     
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="Book", Namespace="http://schemas.datacontract.org/2004/07/Spike.Contracts.Books")]
-    [System.SerializableAttribute()]
-    public partial class Book : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
-        
-        [System.NonSerializedAttribute()]
-        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string AuthorField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int IdField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string TitleField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private System.DateTime YearField;
-        
-        [global::System.ComponentModel.BrowsableAttribute(false)]
-        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
-            get {
-                return this.extensionDataField;
-            }
-            set {
-                this.extensionDataField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Author {
-            get {
-                return this.AuthorField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.AuthorField, value) != true)) {
-                    this.AuthorField = value;
-                    this.RaisePropertyChanged("Author");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int Id {
-            get {
-                return this.IdField;
-            }
-            set {
-                if ((this.IdField.Equals(value) != true)) {
-                    this.IdField = value;
-                    this.RaisePropertyChanged("Id");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Title {
-            get {
-                return this.TitleField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.TitleField, value) != true)) {
-                    this.TitleField = value;
-                    this.RaisePropertyChanged("Title");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.DateTime Year {
-            get {
-                return this.YearField;
-            }
-            set {
-                if ((this.YearField.Equals(value) != true)) {
-                    this.YearField = value;
-                    this.RaisePropertyChanged("Year");
-                }
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(Namespace="Spike.Providers", ConfigurationName="BookProviderService.BookProviderService")]
     public interface BookProviderService {
         
         [System.ServiceModel.OperationContractAttribute(Action="Spike.Providers/BookProviderService/AddBook", ReplyAction="Spike.Providers/BookProviderService/AddBookResponse")]
-        Spike.Providers.WCF.Proxy.BookProviderService.Book AddBook(Spike.Providers.WCF.Proxy.BookProviderService.Book book);
+        Spike.Contracts.Books.Book AddBook(Spike.Contracts.Books.Book book);
         
         [System.ServiceModel.OperationContractAttribute(Action="Spike.Providers/BookProviderService/AddBook", ReplyAction="Spike.Providers/BookProviderService/AddBookResponse")]
-        System.Threading.Tasks.Task<Spike.Providers.WCF.Proxy.BookProviderService.Book> AddBookAsync(Spike.Providers.WCF.Proxy.BookProviderService.Book book);
+        System.Threading.Tasks.Task<Spike.Contracts.Books.Book> AddBookAsync(Spike.Contracts.Books.Book book);
         
         [System.ServiceModel.OperationContractAttribute(Action="Spike.Providers/BookProviderService/GetBook", ReplyAction="Spike.Providers/BookProviderService/GetBookResponse")]
-        Spike.Providers.WCF.Proxy.BookProviderService.Book GetBook(int id);
+        Spike.Contracts.Books.Book GetBook(int id);
         
         [System.ServiceModel.OperationContractAttribute(Action="Spike.Providers/BookProviderService/GetBook", ReplyAction="Spike.Providers/BookProviderService/GetBookResponse")]
-        System.Threading.Tasks.Task<Spike.Providers.WCF.Proxy.BookProviderService.Book> GetBookAsync(int id);
+        System.Threading.Tasks.Task<Spike.Contracts.Books.Book> GetBookAsync(int id);
         
         [System.ServiceModel.OperationContractAttribute(Action="Spike.Providers/BookProviderService/GetAllBooks", ReplyAction="Spike.Providers/BookProviderService/GetAllBooksResponse")]
-        Spike.Providers.WCF.Proxy.BookProviderService.Book[] GetAllBooks();
+        Spike.Contracts.Books.Book[] GetAllBooks();
         
         [System.ServiceModel.OperationContractAttribute(Action="Spike.Providers/BookProviderService/GetAllBooks", ReplyAction="Spike.Providers/BookProviderService/GetAllBooksResponse")]
-        System.Threading.Tasks.Task<Spike.Providers.WCF.Proxy.BookProviderService.Book[]> GetAllBooksAsync();
+        System.Threading.Tasks.Task<Spike.Contracts.Books.Book[]> GetAllBooksAsync();
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -156,27 +61,27 @@ namespace Spike.Providers.WCF.Proxy.BookProviderService {
                 base(binding, remoteAddress) {
         }
         
-        public Spike.Providers.WCF.Proxy.BookProviderService.Book AddBook(Spike.Providers.WCF.Proxy.BookProviderService.Book book) {
+        public Spike.Contracts.Books.Book AddBook(Spike.Contracts.Books.Book book) {
             return base.Channel.AddBook(book);
         }
         
-        public System.Threading.Tasks.Task<Spike.Providers.WCF.Proxy.BookProviderService.Book> AddBookAsync(Spike.Providers.WCF.Proxy.BookProviderService.Book book) {
+        public System.Threading.Tasks.Task<Spike.Contracts.Books.Book> AddBookAsync(Spike.Contracts.Books.Book book) {
             return base.Channel.AddBookAsync(book);
         }
         
-        public Spike.Providers.WCF.Proxy.BookProviderService.Book GetBook(int id) {
+        public Spike.Contracts.Books.Book GetBook(int id) {
             return base.Channel.GetBook(id);
         }
         
-        public System.Threading.Tasks.Task<Spike.Providers.WCF.Proxy.BookProviderService.Book> GetBookAsync(int id) {
+        public System.Threading.Tasks.Task<Spike.Contracts.Books.Book> GetBookAsync(int id) {
             return base.Channel.GetBookAsync(id);
         }
         
-        public Spike.Providers.WCF.Proxy.BookProviderService.Book[] GetAllBooks() {
+        public Spike.Contracts.Books.Book[] GetAllBooks() {
             return base.Channel.GetAllBooks();
         }
         
-        public System.Threading.Tasks.Task<Spike.Providers.WCF.Proxy.BookProviderService.Book[]> GetAllBooksAsync() {
+        public System.Threading.Tasks.Task<Spike.Contracts.Books.Book[]> GetAllBooksAsync() {
             return base.Channel.GetAllBooksAsync();
         }
     }

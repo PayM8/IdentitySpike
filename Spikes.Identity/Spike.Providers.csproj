@@ -47,7 +47,7 @@
     <Compile Include="ProviderFactory.cs" />
     <Compile Include="Security\ClaimRoleMapper.cs" />
     <Compile Include="Security\Mapper.cs" />
-    <Compile Include="Security\SecurityProvider.cs" />
+    <Compile Include="Security\IdentityResolver.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Spike.Contracts\Spike.Contracts.csproj">

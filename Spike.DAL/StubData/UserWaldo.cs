@@ -4,8 +4,7 @@ namespace Spike.Adapters.StubData
     using System.Collections.Generic;
     using Entities;
     using Contracts.Security;
-    using Contracts.Users;
-
+    
     public class UserWaldo
     {
         public static IEnumerable<UserEntity> InitUsers()
@@ -21,11 +20,11 @@ namespace Spike.Adapters.StubData
             IdentityType = IdentityType.InternalUser,
             UserName = "marius",
             Password = "password",
-            Roles = new List<UserRole>
+            Roles = new List<IdentityRole>
             {
-                UserRole.Basic,
-                UserRole.Admin,
-                UserRole.SuperUser
+                IdentityRole.Basic,
+                IdentityRole.Admin,
+                IdentityRole.Super
             }
         };
 
@@ -35,9 +34,9 @@ namespace Spike.Adapters.StubData
             IdentityType = IdentityType.InternalUser,
             UserName = "rob",
             Password = "password",
-            Roles = new List<UserRole>
+            Roles = new List<IdentityRole>
             {
-                UserRole.Basic
+                IdentityRole.Basic
             }
         };
 
@@ -47,10 +46,10 @@ namespace Spike.Adapters.StubData
             IdentityType = IdentityType.InternalUser,
             UserName = "fred",
             Password = "password",
-            Roles = new List<UserRole>
+            Roles = new List<IdentityRole>
             {
-                UserRole.Basic,
-                UserRole.Admin
+                IdentityRole.Basic,
+                IdentityRole.Admin
             }
         };
     }

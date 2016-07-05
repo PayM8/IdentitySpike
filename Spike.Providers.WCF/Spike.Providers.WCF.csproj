@@ -60,7 +60,7 @@
     <Reference Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="SecurityProviderService.cs" />
+    <Compile Include="IdentityResolverService.cs" />
     <Compile Include="BookProviderService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

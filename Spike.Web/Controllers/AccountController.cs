@@ -12,7 +12,7 @@ namespace Spike.Web.Controllers
     
     public class AccountController : ControllerBase
     {
-        private readonly IUserStore<ApplicationUser> _store = new UserStore<ApplicationUser>(ProviderFactory.CreateSecurityProvider());
+        private readonly IUserStore<CommonIdentity> _store = new UserStore<CommonIdentity>(ProviderFactory.CreateSecurityProvider());
         
         public ActionResult UserLogin(string userName, string password)
         {
@@ -48,8 +48,8 @@ namespace Spike.Web.Controllers
         {
             if (!ModelState.IsValid) return View(model);
 
-            var user = new ApplicationUser { UserName = model.Email, Email = model.Email };
-            var result = new UserManager<ApplicationUser>(_store).CreateAsync(user, model.Password);
+            var user = new CommonIdentity { UserName = model.Email, Email = model.Email };
+            var result = new UserManager<CommonIdentity>(_store).CreateAsync(user, model.Password);
 
             if (result.Result.Succeeded)
             {

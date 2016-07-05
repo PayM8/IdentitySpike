@@ -8,7 +8,7 @@ namespace Spike.Providers.Security
     
     public static class Mapper
     {
-        public static UserEntity Map(this ApplicationUser original)
+        public static UserEntity Map(this CommonIdentity original)
         {
             if (original == null)
             {
@@ -16,7 +16,7 @@ namespace Spike.Providers.Security
             }
 
             var id = string.IsNullOrEmpty(original.Id) ? 0 : int.Parse(original.Id);
-            var convertedRoles = (original.Roles ?? new List<UserRole>()).ToList();
+            var convertedRoles = (original.Roles ?? new List<IdentityRole>()).ToList();
             
             return new UserEntity
             {
@@ -28,17 +28,17 @@ namespace Spike.Providers.Security
             };
         }
 
-        public static ApplicationUser Map(this UserEntity original)
+        public static CommonIdentity Map(this UserEntity original)
         {
             if (original == null)
             {
-                return new ApplicationUser();
+                return new CommonIdentity();
             }
 
             var id = original.Id.ToString();
-            var convertedRoles = (original.Roles ?? new List<UserRole>()).ToList();
+            var convertedRoles = (original.Roles ?? new List<IdentityRole>()).ToList();
 
-            return new ApplicationUser
+            return new CommonIdentity
             {
                 Id = id,
                 UserName = original.UserName,

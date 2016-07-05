@@ -11,9 +11,9 @@ namespace Spike.Providers
             return new BookProvider(); 
         }
 
-        public static SecurityProvider CreateSecurityProvider()
+        public static IdentityResolver CreateSecurityProvider()
         {
-            return new SecurityProvider();
+            return new IdentityResolver();
         }
     }
 }

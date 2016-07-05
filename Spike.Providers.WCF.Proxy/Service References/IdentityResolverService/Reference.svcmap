@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="024e82a4-f72e-41c2-b2b6-5687373f1ec1" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:8733/IdentityResolverService/mex" Protocol="mex" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="Spike.Providers.wsdl" MetadataType="Wsdl" ID="49678e43-6c4d-49fb-9220-38e123d2c8a6" SourceId="1" SourceUrl="http://localhost:8733/IdentityResolverService/mex" />
+    <MetadataFile FileName="service.wsdl" MetadataType="Wsdl" ID="70412d20-2f01-4500-be1d-019124cf980a" SourceId="1" SourceUrl="http://localhost:8733/IdentityResolverService/mex" />
+    <MetadataFile FileName="Spike.Providers.xsd" MetadataType="Schema" ID="2fcef38c-a849-464c-a220-f3e9dd5a5d7e" SourceId="1" SourceUrl="http://localhost:8733/IdentityResolverService/mex" />
+    <MetadataFile FileName="service.xsd" MetadataType="Schema" ID="007c89a8-a326-4e54-8e02-b9b3678423cc" SourceId="1" SourceUrl="http://localhost:8733/IdentityResolverService/mex" />
+    <MetadataFile FileName="Spike.Contracts.Security.xsd" MetadataType="Schema" ID="1ccd6130-ee93-4280-aa58-27d255db67a6" SourceId="1" SourceUrl="http://localhost:8733/IdentityResolverService/mex" />
+    <MetadataFile FileName="System.Security.Claims.xsd" MetadataType="Schema" ID="b670c01d-6449-4d32-9574-5cc7482c2d14" SourceId="1" SourceUrl="http://localhost:8733/IdentityResolverService/mex" />
+    <MetadataFile FileName="Arrays.xsd" MetadataType="Schema" ID="37315538-8a14-4d08-8dd7-5551d5da87dc" SourceId="1" SourceUrl="http://localhost:8733/IdentityResolverService/mex" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

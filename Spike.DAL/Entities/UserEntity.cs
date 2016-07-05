@@ -3,13 +3,12 @@ namespace Spike.Adapters.Entities
 {
     using System.Collections.Generic;
     using Contracts.Security;
-    using Contracts.Users;
 
     public class UserEntity
     {
         public UserEntity()
         {
-            this.Roles = new List<UserRole>();
+            this.Roles = new List<IdentityRole>();
         }
 
         public int Id { get; set; }
@@ -19,8 +18,8 @@ namespace Spike.Adapters.Entities
         public string Password { get; set; }
 
         public IdentityType IdentityType { get; set; }
-
-        public List<UserRole> Roles { get; set; }
+   
+        public List<IdentityRole> Roles { get; set; }
         
         public bool IsDeleted { get; set; }
     }

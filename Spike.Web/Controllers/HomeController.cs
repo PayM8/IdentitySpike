@@ -10,7 +10,7 @@ namespace Spike.Web.Controllers
 
         public ActionResult Index()
         {
-            //var user = new ApplicationUser() { UserName = "Marius"};
+            //var user = new ApplicationIdenity() { UserName = "Marius"};
            // var result =  UserManager.CreateAsync(user, user.Password);
 
             var homeModel = new Home()
