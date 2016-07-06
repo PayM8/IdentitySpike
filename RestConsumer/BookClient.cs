@@ -124,7 +124,11 @@ namespace RestConsumer
         {
             var client = new HttpClient {BaseAddress = new Uri(BaseAddress)};
             client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
-
+            client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue(
+        "Basic", 
+        Convert.ToBase64String(
+            System.Text.ASCIIEncoding.ASCII.GetBytes(
+                string.Format("{0}:{1}", "marius", "password"))));
             return client;
         }
     }

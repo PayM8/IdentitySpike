@@ -57,6 +57,10 @@
       <Project>{0b45b0d7-100a-4721-a9a4-ee132b5b0431}</Project>
       <Name>Spike.Providers.WCF</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Spike.Security\Spike.Security.csproj">
+      <Project>{39fdfdd6-7b2c-4565-8cf0-2027593941c4}</Project>
+      <Name>Spike.Security</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

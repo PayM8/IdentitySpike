@@ -4,6 +4,7 @@ namespace Spike.Web
     using System.Web.Http;
     using Newtonsoft.Json;
     using Newtonsoft.Json.Serialization;
+    using Spike.Security.Authentication.BasicAuth.Rest;
 
     public static class WebApiConfig
     {
@@ -14,8 +15,6 @@ namespace Spike.Web
             // Forces browser to return JSON
             formatters.Remove(formatters.XmlFormatter);
 
-           // GlobalConfiguration.Configuration.Filters.Add(new WebApiExceptionFilter());
-            //GlobalConfiguration.Configuration.Filters.Add(new BasicAuthorizationFilterAttribute());
 
             var jsonFormatter = formatters.JsonFormatter;
 
@@ -25,6 +24,7 @@ namespace Spike.Web
 
             config.MapHttpAttributeRoutes();
 
+            GlobalConfiguration.Configuration.Filters.Add(new BasicAuthentication());
             config.Routes.MapHttpRoute(
                 name: "DefaultApi",
                 routeTemplate: "api/{controller}/{id}",
