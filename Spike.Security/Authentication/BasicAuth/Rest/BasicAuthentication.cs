@@ -28,7 +28,7 @@ namespace Spike.Security.Authentication.BasicAuth.Rest
                 return;
             }
             actionContext.Response = new System.Net.Http.HttpResponseMessage(System.Net.HttpStatusCode.Unauthorized);
-            actionContext.Response.Headers.Add("WWW-Authenticate", "Basic realm=SpikeReal");
+            actionContext.Response.Headers.Add("WWW-Authenticate", "Basic realm=SpikeRealm");
         }
     }
 }

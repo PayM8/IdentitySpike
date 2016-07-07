@@ -6,6 +6,7 @@ namespace Spike.Security.Authentication.BasicAuth.MVC
 {
     using System;
     using System.IdentityModel.Selectors;
+    using System.IdentityModel.Tokens;
 
     /// <summary>
     /// A basic authentication.
@@ -20,7 +21,10 @@ namespace Spike.Security.Authentication.BasicAuth.MVC
         public override void Validate(string userName, string password)
         {
             if (userName == null || password == null)
-                throw new UnauthorizedAccessException("API login failed");
+            {
+                throw new SecurityTokenException("authentication failed!");
+            }
+            return;
         }
     }
 }
