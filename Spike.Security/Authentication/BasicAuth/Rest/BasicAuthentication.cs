@@ -25,7 +25,12 @@ namespace Spike.Security.Authentication.BasicAuth.Rest
                 var cred = System.Text.ASCIIEncoding.ASCII.GetString(Convert.FromBase64String(auth.Substring(6))).Split(':');
                 var username = cred[0];
                 var password = cred[1];
-                return;
+
+                if (username == "user" || password == "banana")
+                {
+                    return;
+                }
+
             }
             actionContext.Response = new System.Net.Http.HttpResponseMessage(System.Net.HttpStatusCode.Unauthorized);
             actionContext.Response.Headers.Add("WWW-Authenticate", "Basic realm=SpikeRealm");

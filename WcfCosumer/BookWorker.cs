@@ -6,25 +6,29 @@ namespace WcfCosumer
     using System.Threading;
     using BookService;
     using System.Collections.Generic;
+    using System.ServiceModel.Security;
+    using System.ServiceModel;
 
     public static class BookWorker
     {
-        public static Book AddBullsEye()
+        public static Book AddBullsEye(string username, string password)
         {
-            return AddBook(new BookBuilder().BullsEye().Build());
+            return AddBook(new BookBuilder().BullsEye().Build(), username, password);
         }
 
-        public static Book AddFiveDysfunctions()
+        public static Book AddFiveDysfunctions(string username, string password)
         {
-            return AddBook(new BookBuilder().FiveDysfunctions().Build());
+            return AddBook(new BookBuilder().FiveDysfunctions().Build(), username, password);
         }
 
-        public static Book GetBullsEyeBook()
+        public static Book GetBullsEyeBook(string username, string password)
         {
             Book newBook;
 
             using (var client = new BookServiceClient())
             {
+                client.ClientCredentials.UserName.UserName = username;
+                client.ClientCredentials.UserName.Password = password;
                 newBook = client.GetBook(new BookBuilder().BullsEye().Id);
             }
 
@@ -41,50 +45,75 @@ namespace WcfCosumer
             return newBook;
         }
 
-        public static IEnumerable<Book> GetAllBooks()
+        public static IEnumerable<Book> GetAllBooks(string username, string password)
         {
-           IEnumerable<Book> books;
-
-            using (var client = new BookServiceClient())
+            IEnumerable<Book> books;
+            try
             {
-                books = client.GetAllBooks();
-            }
-
-            if (!books.Any())
-            {
-                Console.WriteLine("No books where found");
-            }
-            else
-            {
-                foreach (var book in books)
+                using (var client = new BookServiceClient())
                 {
-                    Console.WriteLine("Retrieved [{0}] book", book.Display());
-                }
-            }
+                    client.ClientCredentials.UserName.UserName = username;
+                    client.ClientCredentials.UserName.Password = password;
 
+                    books = client.GetAllBooks();
+
+                }
+
+                if (!books.Any())
+                {
+                    Console.WriteLine("No books where found");
+                }
+                else
+                {
+                    foreach (var book in books)
+                    {
+                        Console.WriteLine("Retrieved [{0}] book", book.Display());
+                    }
+                }
+
+            }
+            catch (Exception me)
+            {
+                Console.WriteLine(me.Message);
+                books = new List<Book>();
+            }
             Thread.Sleep(2000);
             return books;
         }
 
-        private static Book AddBook(Book book)
+        private static Book AddBook(Book book, string username, string password)
         {
             Book newBook;
-            Console.WriteLine("Start - Adding [{0}] book", book.Display());
-
-            using (var client = new BookServiceClient())
+            try
             {
-                newBook = client.AddBook(book);
-            }
+                Console.WriteLine("Start - Adding [{0}] book", book.Display());
 
-            Console.WriteLine("End - Adding [{0}] book", newBook.Display());
-            Thread.Sleep(2000);
+                using (var client = new BookServiceClient())
+                {
+                    client.ClientCredentials.UserName.UserName = username;
+                    client.ClientCredentials.UserName.Password = password;
+
+                    newBook = client.AddBook(book);
+
+                }
+
+                Console.WriteLine("End - Adding [{0}] book", newBook.Display());
+                Thread.Sleep(2000);
+
+            }
+            catch (Exception me)
+            {
+                newBook = new Book();
+                newBook.Title = me.Message;
+                Console.WriteLine(me.Message);
+            }
             return newBook;
         }
 
         public static string Display(this Book book)
         {
-            return book == null ? "No book." : 
-                string.Format("Id: {0} Title: {1} Author: {2} Year: {3}", 
+            return book == null ? "No book." :
+                string.Format("Id: {0} Title: {1} Author: {2} Year: {3}",
                 book.Id, book.Title, book.Author, book.Year);
         }
     }

@@ -45,7 +45,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Authentication\BasicAuth\Hosting\CustomServiceAuthorizationManager.cs" />
     <Compile Include="Authentication\BasicAuth\MVC\BasicAuthentication.cs" />
     <Compile Include="Authentication\BasicAuth\Rest\BasicAuthentication.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

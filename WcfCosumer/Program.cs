@@ -9,20 +9,44 @@ namespace WcfCosumer
         {
             var response = 's';
 
+            var username = String.Empty;
+            var password = String.Empty;
+
             while (!response.Equals('x'))
             {
+
                 switch (response)
                 {
-                     case 'a' : BookWorker.AddBullsEye();
+                    case 'a':
+                        Console.Write("Enter Username: ");
+                        username = Console.ReadLine();
+                        Console.Write("Enter Password: ");
+                        password = Console.ReadLine();
+                        BookWorker.AddBullsEye(username, password);
                         break;
-                     case 'b' : BookWorker.AddFiveDysfunctions();
+                    case 'b':
+                        Console.Write("Enter Username: ");
+                        username = Console.ReadLine();
+                        Console.Write("Enter Password: ");
+                        password = Console.ReadLine();
+                        BookWorker.AddFiveDysfunctions(username, password);
                         break;
-                     case 'c' : BookWorker.GetBullsEyeBook();
+                    case 'c':
+                        Console.Write("Enter Username: ");
+                        username = Console.ReadLine();
+                        Console.Write("Enter Password: ");
+                        password = Console.ReadLine();
+                        BookWorker.GetBullsEyeBook(username, password);
                         break;
-                     case 'd': BookWorker.GetAllBooks();
+                    case 'd':
+                        Console.Write("Enter Username: ");
+                        username = Console.ReadLine();
+                        Console.Write("Enter Password: ");
+                        password = Console.ReadLine();
+                        BookWorker.GetAllBooks(username, password);
                         break;
                 }
-                
+
                 Console.Clear();
                 Console.WriteLine("*** Consumer: WCF ***");
                 Console.WriteLine();
@@ -36,7 +60,7 @@ namespace WcfCosumer
                 response = Convert.ToChar(raw);
                 Console.Clear();
             }
-         
+
         }
     }
 }

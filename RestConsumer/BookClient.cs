@@ -12,8 +12,9 @@ namespace RestConsumer
 
     public class BookClient : ApiClient
     {
-        public BookClient() : base("http://localhost:4345/v01/")
-        {}
+        public BookClient()
+            : base("http://localhost:4345/v01/")
+        { }
 
         public void GetSingleBook(string relativePath)
         {
@@ -80,7 +81,7 @@ namespace RestConsumer
             Thread.Sleep(2000);
         }
     }
-    
+
     public abstract class ApiClient
     {
         protected readonly string BaseAddress;
@@ -89,7 +90,7 @@ namespace RestConsumer
         {
             this.BaseAddress = baseAddress;
         }
-        
+
         protected T GetApi<T>(string relativePath)
         {
             using (var client = this.CreateJsonHttpClient())
@@ -98,6 +99,10 @@ namespace RestConsumer
                 if (response.IsSuccessStatusCode)
                 {
                     return response.Content.ReadAsAsync<T>().Result;
+                }
+                else
+                {
+                    Console.WriteLine(response.ReasonPhrase);
                 }
 
                 Console.WriteLine("No Book Found.");
@@ -122,13 +127,13 @@ namespace RestConsumer
 
         private HttpClient CreateJsonHttpClient()
         {
-            var client = new HttpClient {BaseAddress = new Uri(BaseAddress)};
+            var client = new HttpClient { BaseAddress = new Uri(BaseAddress) };
             client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
             client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue(
-        "Basic", 
+        "Basic",
         Convert.ToBase64String(
             System.Text.ASCIIEncoding.ASCII.GetBytes(
-                string.Format("{0}:{1}", "marius", "password"))));
+                string.Format("{0}:{1}", "user", "banana"))));
             return client;
         }
     }
